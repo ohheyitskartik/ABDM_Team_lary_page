@@ -6833,6 +6833,11 @@ react-native-codegen@^0.0.6:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
+react-native-fast-image@^8.5.11:
+  version "8.5.11"
+  resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.5.11.tgz#e3dc969d0e4e8df026646bf18194465aa55cbc2b"
+  integrity sha512-cNW4bIJg3nvKaheG8vGMfqCt5LMWX9MS5+wMudgKIHbGO51spRr4sgnlhVgwHLcZ5aeNOVJ8CPRxDIWKRq/0QA==
+
 react-native-geolocation-service@^5.2.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/react-native-geolocation-service/-/react-native-geolocation-service-5.3.0.tgz#2f361ce003457651b656266d5e1328f3e335e693"
@@ -6929,6 +6934,13 @@ react-native-screens@^3.4.0:
   dependencies:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
+
+react-native-shimmer@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-shimmer/-/react-native-shimmer-0.6.0.tgz#9529c4c85665827c582ebb74a285a67a450f5f2b"
+  integrity sha512-uDrriPwzbOKj3XlFDNhCVst+veTy58RVNpcaJfLlZR2pX3/4A4P+E7rGeDUhfe2lWz/OTEwDWidVkrIcCakEng==
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native-svg-charts@5.4.0:
   version "5.4.0"
