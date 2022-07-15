@@ -7,27 +7,15 @@
  */
 
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import MainStack from './app/routes/routes';
 
 const App = () => {
   return (
-     <View style={styles.sectionContainer}>
-       <Text>Home</Text>
-     </View>
+    <NavigationContainer  initialRouteName="Home">
+      <MainStack/>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    flex:1,
-    justifyContent:"center",
-    alignItems:"center"
-  },
- 
-});
 
 export default App;
