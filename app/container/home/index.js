@@ -9,14 +9,19 @@ const Home = () => {
         <View style={styles.container}>
             <Text>Home</Text>
             <TouchableOpacity
-                onPress={() => navigation.navigate('RequestOTP')}
+                onPress={() => navigation.navigate('Request OTP')}
                 style={styles.requestOtp}>
                 <Text>Request OTP</Text>
             </TouchableOpacity>
             <TouchableOpacity
-                onPress={() => navigation.navigate('ValidateOTP')}
+                onPress={() => navigation.navigate('Validate OTP')}
                 style={styles.requestOtp}>
                 <Text>Validate OTP</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Create your Abha Address')}
+                style={styles.requestOtp}>
+                <Text>Create your Abha Address</Text>
             </TouchableOpacity>
         </View>
     );

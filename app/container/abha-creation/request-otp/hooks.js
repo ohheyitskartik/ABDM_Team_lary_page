@@ -69,7 +69,7 @@ export const useRequestOTP = () => {
 
     const onSubmit = () => {
         console.log('here');
-        navigation.navigate('ValidateOTP');
+        navigation.navigate('Validate OTP');
     };
 
     return {

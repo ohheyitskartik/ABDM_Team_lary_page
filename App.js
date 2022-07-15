@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { MenuProvider } from 'react-native-popup-menu';
 import MainStack from './app/routes/routes';
 
 const queryClient = new QueryClient({
@@ -19,11 +20,13 @@ const queryClient = new QueryClient({
 const App = () => {
     return (
         <SafeAreaView style={{ backgroundColor: 'transparent', flex: 1 }}>
-            <QueryClientProvider client={queryClient}>
-                <NavigationContainer initialRouteName="Home">
-                    <MainStack />
-                </NavigationContainer>
-            </QueryClientProvider>
+            <MenuProvider>
+                <QueryClientProvider client={queryClient}>
+                    <NavigationContainer initialRouteName="Home">
+                        <MainStack />
+                    </NavigationContainer>
+                </QueryClientProvider>
+            </MenuProvider>
         </SafeAreaView>
     );
 };

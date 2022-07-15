@@ -36,7 +36,12 @@ export const useValidateOTP = () => {
         if (!OTPConfigs.OTP_REGEX.test(otpValues) || otpValues?.length !== 6) {
             setErrorMessage('Please enter a valid 6 digit otp !');
         }
-        console.log('handlesubmit');
+        console.log('handlesubmit', otpValues);
+        navigation.navigate('Select Abha Address', {
+            mobileNumber: '',
+            token: '',
+            mappedPhrAddress: ['nis124@sbx'],
+        });
         //   here code to navigate and validate
     };
 
