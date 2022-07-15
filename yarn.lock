@@ -2722,10 +2722,20 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+crypto-js@3.1.9-1:
+  version "3.1.9-1"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
+  integrity sha512-W93aKztssqf29OvUlqfikzGyYbD1rpkXvGP9IQ1JchLY3bxaLXZSWYbwrtib2vk8DobrDzX7PIXcDWHp0B6Ymw==
+
 crypto-js@^3.2.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.3.0.tgz#846dd1cce2f68aacfa156c8578f926a609b7976b"
   integrity sha512-DIT51nX0dCfKltpRiXV+/TVZq+Qq2NgF4644+K7Ttnla7zEzqc+kjJyiB96BHNyUTBxyjzRcZYpUdZa+QAqi6Q==
+
+crypto@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/crypto/-/crypto-1.0.1.tgz#2af1b7cad8175d24c8a1b0778255794a21803037"
+  integrity sha512-VxBKmeNcqQdiUQUW2Tzq0t377b54N2bMtXO/qiLa+6eRRmmC4qT3D4OnTGoT/U6O9aklQ/jTwbOtRMTTY8G0Ig==
 
 css-select@^4.2.1:
   version "4.3.0"
@@ -4249,6 +4259,18 @@ husky@^3.1.0:
     read-pkg "^5.2.0"
     run-node "^1.0.0"
     slash "^3.0.0"
+
+hybrid-crypto-js@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/hybrid-crypto-js/-/hybrid-crypto-js-0.2.4.tgz#7e764a6c4c7542e84df368df9e84fd76ab7043a1"
+  integrity sha512-lm4iQn14rApw/7yLOnd9eZu8JaxD8+BB34bQaZY7faKiT78tVjxSwOabOPO2LSIS0QMANhjMXNLNUXyuAJwYXw==
+  dependencies:
+    node-forge "^0.8.5"
+
+hybrid@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/hybrid/-/hybrid-0.0.2.tgz#983b093efddffcc326d3b6ab84ac667083636e61"
+  integrity sha512-GuxCFVEPBYQtsNz2qpKfRmRPluEZs2WQgCZdDG185tM+Ynmn81hRMcnos2gNEIvENL3yruPcm8c/kPKELMBPpw==
 
 iconv-lite@0.4.24:
   version "0.4.24"
@@ -6140,6 +6162,11 @@ node-fetch@2.6.7, node-fetch@^2.2.0, node-fetch@^2.6.0:
   dependencies:
     whatwg-url "^5.0.0"
 
+node-forge@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.8.5.tgz#57906f07614dc72762c84cef442f427c0e1b86ee"
+  integrity sha512-vFMQIWt+J/7FLNyKouZ9TazT74PRV3wgv9UT4cRjC8BffxFbKXkgIWR42URCPSnHm/QDz6BOlb2Q0U4+VQT67Q==
+
 node-int64@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/node-int64/-/node-int64-0.4.0.tgz#87a9065cdb355d3182d8f94ce11188b825c68a3b"
@@ -6817,12 +6844,22 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
+react-native-aes-crypto@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-aes-crypto/-/react-native-aes-crypto-2.1.0.tgz#9482fe914cae411f10ec43a53b2439a41b78cbbd"
+  integrity sha512-2zvvQXMW2Qeg9B/VDetoB2w/cyVncPuEsoW1iUhZP12jAx+zbxsdf+A7inSf2XKMcRURfpsfUshQTb2beYUVhA==
+
 react-native-animatable@1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.3.tgz#a13a4af8258e3bb14d0a9d839917e9bb9274ec8a"
   integrity sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w==
   dependencies:
     prop-types "^15.7.2"
+
+react-native-background-timer@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-background-timer/-/react-native-background-timer-2.4.1.tgz#a3bc1cafa8c1e3aeefd0611de120298b67978a0f"
+  integrity sha512-TE4Kiy7jUyv+hugxDxitzu38sW1NqjCk4uE5IgU2WevLv7sZacaBc6PZKOShNRPGirLl1NWkaG3LDEkdb9Um5g==
 
 react-native-codegen@^0.0.6:
   version "0.0.6"
@@ -6881,6 +6918,11 @@ react-native-modal@^12.0.2:
     prop-types "^15.6.2"
     react-native-animatable "1.3.3"
 
+react-native-otp-verify@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-otp-verify/-/react-native-otp-verify-1.0.5.tgz#252ac8019d793f1f171cae7e04bc10d322e62daa"
+  integrity sha512-CCOdORCxKF3qTGk6JPdULFP8egvBnRjy6Bm8G8/OaCxDUpwUC9IQdyVY3wK7OCPRD+B/I0H93VPXPD3OI8Q65w==
+
 react-native-pdf@6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/react-native-pdf/-/react-native-pdf-6.4.0.tgz#e3aa583e3a2ccce0838dcc0ac5a29987774eea4f"
@@ -6913,6 +6955,16 @@ react-native-reanimated@2.3.1:
     mockdate "^3.0.2"
     react-native-screens "^3.4.0"
     string-hash-64 "^1.0.3"
+
+react-native-rsa-native@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-rsa-native/-/react-native-rsa-native-2.0.5.tgz#7db4aef49405bb5b5bcaea12b9dfd1b251c690ab"
+  integrity sha512-gwwvFSwGW5WKrpDyBQ/eTf1UrVABeAvMcT4YWemzPSUo6aHZs1kbBm2rXmwN5okhUzJsry5zjjz/qdx5GXRugQ==
+
+react-native-rsa@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-rsa/-/react-native-rsa-0.0.3.tgz#c3b5b85278e8a1a3ef22b4206a7d6aa04a26d99b"
+  integrity sha512-yqfyHeoooRGp1aeyra7Elk5gc0nhkVXHNB7XMe0ZKPvoxribBGJmM/t8JLqoPBSLEaet3vFWlsXDsjUK3TnyNQ==
 
 react-native-safe-area-context@4.1.2:
   version "4.1.2"

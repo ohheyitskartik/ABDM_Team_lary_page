@@ -1,4 +1,4 @@
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -24,3 +24,6 @@ export const checkForValidNumber = (input) => {
 
     return input.replace(/\D/g, '');
 };
+
+export const isIOS = Platform.OS === 'ios';;
+export const isAndroid = Platform.OS === 'android';;

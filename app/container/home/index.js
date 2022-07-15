@@ -13,6 +13,11 @@ const Home = () => {
                 style={styles.requestOtp}>
                 <Text>Request OTP</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('ValidateOTP')}
+                style={styles.requestOtp}>
+                <Text>Validate OTP</Text>
+            </TouchableOpacity>
         </View>
     );
 };

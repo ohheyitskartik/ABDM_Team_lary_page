@@ -5,3 +5,7 @@ export const rippleViolet = 'rgb(155, 89, 236) ';
 export const splashViolet = 'rgb(122,56,203)';
 export const silverChalice = '#aaa';
 export const green6 = '#1BB934';
+export const creamishPurple = '#dcd3f1';
+export const black = '#000';
+export const white = '#fff';
+export const blackMatte = '#252525';
