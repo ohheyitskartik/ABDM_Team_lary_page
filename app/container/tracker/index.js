@@ -1,11 +1,16 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLinkDevice, useSteps } from './hooks';
 
 const Tracker = () => {
     const { initHealthKit } = useLinkDevice();
-    const { syncAppleHealth, data } = useSteps();
-    console.log('DAAATA', data);
+    const { syncAppleHealth, isFetched, data } = useSteps();
+
+    useEffect(() => {
+        if (isFetched) {
+            console.log('Data', data);
+        }
+    }, [isFetched]);
 
     return (
         <View>

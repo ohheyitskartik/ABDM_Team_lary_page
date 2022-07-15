@@ -7,14 +7,13 @@ function Login() {
     const [confirm, setConfirm] = useState(null);
 
     const [code, setCode] = useState('');
+    const [number, setNumber] = useState(null);
 
     // Handle the button press
     async function signInWithPhoneNumber(phoneNumber) {
         const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
         setConfirm(confirmation);
     }
-
-    console.log(confirm);
 
     async function confirmCode() {
         try {
@@ -26,10 +25,18 @@ function Login() {
 
     if (!confirm) {
         return (
-            <Button
-                title="Phone Number Sign In"
-                onPress={() => signInWithPhoneNumber('+91-7007682448')}
-            />
+            <>
+                <TextInput
+                    style={{ border: 1 }}
+                    value={number}
+                    onChangeText={(n) => setNumber(n)}
+                    placeholder="Enter 10 Digit Mobile Number"
+                />
+                <Button
+                    title="Phone Number Sign In"
+                    onPress={() => signInWithPhoneNumber(`+91-${number}`)}
+                />
+            </>
         );
     }
 
