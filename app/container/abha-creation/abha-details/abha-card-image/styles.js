@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: scale(20),
         flexDirection: 'row',
-        height: verticalScale(200),
+        marginVertical: 10,
     },
     card: {
         width: '80%',
-        height: verticalScale(150),
+        height: verticalScale(300),
         padding: scale(10),
         backgroundColor: white,
         borderRadius: 15,

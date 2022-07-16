@@ -11,7 +11,7 @@ export default function AbhaCardImage() {
     return (
         <>
             <View style={styles.container}>
-                <TouchableOpacity onPress={() => setShowCard(!showCard)} style={styles.card}>
+                <View style={styles.card}>
                     <View
                         style={{
                             flexDirection: 'row',
@@ -40,22 +40,6 @@ export default function AbhaCardImage() {
                             <Text style={styles.text}>nis124@sbx</Text>
                         </View>
                     </View>
-
-                    <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
-                        <Text style={{ fontSize: 12 }}>Click here to view your Health ID</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
-            {showCard && (
-                <Overlay
-                    visible={showCard}
-                    onClose={() => setShowCard(false)}
-                    closeOnTouchOutside
-                    containerStyle={{ backgroundColor: 'rgba(201, 188, 187,0.5)' }}
-                    childrenWrapperStyle={{
-                        height: scale(200),
-                        justifyContent: 'center',
-                    }}>
                     <FastImage
                         source={{
                             uri: 'https://preview.redd.it/ofr9odcc60k81.png?width=640&crop=smart&auto=webp&s=d83b9237170c302b3d4315fec6d8cb1af1462c9b',
@@ -63,15 +47,15 @@ export default function AbhaCardImage() {
                         style={{
                             // width: '80%',
                             // height: '80%',
-                            width: scale(340),
-                            height: scale(340),
+                            width: scale(220),
+                            height: scale(220),
                             justifyContent: 'center',
                             alignItems: 'center',
                         }}
                         resizeMode={FastImage.resizeMode.contain}
                     />
-                </Overlay>
-            )}
+                </View>
+            </View>
         </>
     );
 }
