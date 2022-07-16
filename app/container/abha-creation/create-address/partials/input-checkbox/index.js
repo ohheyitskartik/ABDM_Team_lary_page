@@ -20,7 +20,7 @@ const InputCheckBox = ({ control, formErrors, keyName, inputHeader, defaultValue
                 control={control}
                 render={({ field: { onChange, value } }) => (
                     <View>
-                        <Text color={brandDark} fontType="bold" style={styles.checkBoxHeader}>
+                        <Text color="#1e91a3" fontType="bold" style={styles.checkBoxHeader}>
                             {inputHeader}
                         </Text>
                         <GenderCheckBox
@@ -37,3 +37,20 @@ const InputCheckBox = ({ control, formErrors, keyName, inputHeader, defaultValue
 };
 
 export default InputCheckBox;
+// textInput: {
+
+//     borderWidth: 1,
+
+//     padding: 14,
+
+//     borderRadius: 12,
+
+//     fontSize: 16,
+
+//     marginVertical: 10,
+
+//     width: '70%',
+
+//     marginRight: 10,
+
+//     },

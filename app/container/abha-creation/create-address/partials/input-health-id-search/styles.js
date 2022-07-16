@@ -12,7 +12,7 @@ import { scale, verticalScale } from '../../../../../../utils';
 export default StyleSheet.create({
     healthIdTextInput: {
         backgroundColor: white,
-        paddingVertical: verticalScale(12),
+        paddingVertical: verticalScale(9),
         paddingHorizontal: scale(10),
         fontSize: scale(16),
         borderTopLeftRadius: scale(8),
@@ -20,10 +20,10 @@ export default StyleSheet.create({
         width: '80%',
         color: black,
         borderWidth: 1,
-        borderColor: blueberry,
+        borderColor: '#1e91a3',
     },
     textFieldView: {
-        marginVertical: verticalScale(10),
+        marginVertical: verticalScale(6),
     },
     ndhmTextInputContainer: {
         flexDirection: 'row',
@@ -31,14 +31,13 @@ export default StyleSheet.create({
         position: 'relative',
     },
     ndhmView: {
-        backgroundColor: purpleTint,
-        paddingVertical: verticalScale(13),
+        backgroundColor: '#1e91a3',
+        paddingVertical: verticalScale(11),
         paddingHorizontal: scale(10),
         fontSize: scale(16),
         borderTopRightRadius: scale(8),
         borderBottomRightRadius: scale(8),
-        borderWidth: 1,
-        borderColor: blueberry,
+        borderColor: '#1e91a3',
     },
     healthIdCorrectTick: {
         position: 'absolute',
@@ -51,7 +50,7 @@ export default StyleSheet.create({
     textInputBorder: {
         borderWidth: 1,
         width: '80%',
-        borderColor: lightGrey,
+        borderColor: '#1e91a3',
         height: '90%',
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,

@@ -63,7 +63,9 @@ const HealthIDSelector = () => {
                                 })
                             }
                             style={styles.createNewAbhaStyle}>
-                            <Text size={10}>Want to Create new ABHA Address? </Text>
+                            <Text color="white" size={10}>
+                                Want to Create new ABHA Address?{' '}
+                            </Text>
                             <Text
                                 size={10}
                                 color={cerulean}

@@ -13,20 +13,21 @@ const styles = StyleSheet.create({
     nineOneContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: lightGrey,
-        paddingHorizontal: scale(7),
-        paddingVertical: scale(12),
-        borderRadius: scale(10),
+        backgroundColor: '#1e91a3',
+
+        borderRadius: 12,
+        padding: 14,
     },
     textInputContainer: {
         width: '75%',
         flexDirection: 'row',
         alignItems: 'center',
-        borderWidth: 2,
         position: 'relative',
-        borderRadius: scale(10),
         marginHorizontal: scale(5),
-        borderColor: grey,
+        borderWidth: 1,
+        padding: scale(3),
+        borderRadius: 12,
+        borderColor: '#1e91a3',
     },
     contentContainer: {
         flexDirection: 'column',
@@ -61,11 +62,13 @@ const styles = StyleSheet.create({
         color: '#252525',
         width: '60%',
         padding: 10,
+        // borderWidth: 1,
     },
     OTPButton: {
         width: '40%',
         marginVertical: scale(10),
         marginBottom: 50,
+        backgroundColor: '#1e91a3',
     },
     tickImage: {
         height: scale(20),

@@ -15,10 +15,8 @@ const InputDropDown = ({ control, formErrors, keyName, inputHeader, defaultValue
                 control={control}
                 render={({ field: { onChange } }) => (
                     <View style={styles.dropDownHeader}>
-                        <Text color={brandDark} fontType="bold" style={styles.dropDownHeader}>
-                            {inputHeader}
-                        </Text>
                         <YearPickerDropDown
+                            yearLabel={inputHeader}
                             selectionColor={white}
                             value={defaultValue}
                             onDateSelect={(val) => {

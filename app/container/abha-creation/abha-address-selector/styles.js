@@ -1,9 +1,8 @@
-import { creamishPurple, purpleTint, white } from '../../../../colors';
+import { purpleTint, white } from '../../../../colors';
 import { scale, verticalScale } from '../../../../utils';
 
 const styles = {
     container: {
-        backgroundColor: creamishPurple,
         flex: 1,
     },
     contentContainer: {
@@ -24,6 +23,7 @@ const styles = {
     continueButton: {
         width: '70%',
         paddingVertical: scale(15),
+        backgroundColor: '#1e91a3',
     },
     termsContainer: {
         flexDirection: 'row',
@@ -46,7 +46,7 @@ const styles = {
     needHelp: {
         marginBottom: verticalScale(12),
     },
-    clickableText: { textDecorationLine: 'underline' },
+    clickableText: { textDecorationLine: 'underline', color: 'white' },
     termStyle: {
         marginLeft: scale(5),
     },

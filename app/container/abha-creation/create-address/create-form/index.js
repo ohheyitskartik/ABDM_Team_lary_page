@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import FastImage from 'react-native-fast-image';
 import Text from '../../../../components/text';
 import Button from '../../../../components/button';
 import { white } from '../../../../../colors';
@@ -10,6 +11,8 @@ import InputTextFields from '../partials/input-text-fields';
 import InputCheckBox from '../partials/input-checkbox';
 import InputDropDown from '../partials/input-dropdown';
 import InputHealthIdSearch from '../partials/input-health-id-search';
+import { images } from '../../abha-details/abha-card-image/images';
+import { scale } from '../../../../../utils';
 
 const HealthIdCreateForm = () => {
     const {
@@ -26,6 +29,14 @@ const HealthIdCreateForm = () => {
         <>
             <KeyboardAwareScrollView style={styles.container}>
                 <View style={styles.formContainer}>
+                    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <FastImage
+                            source={images.NHAlogo}
+                            style={{ width: scale(250), height: scale(250), paddingHorizontal: 30 }}
+                            resizeMode={FastImage.resizeMode.contain}
+                        />
+                    </View>
+                    <Text style={{ fontSize: 30, fontWeight: 'bold' }}>Create ABHA ID</Text>
                     <InputHealthIdSearch
                         control={control}
                         formErrors={formErrors}
@@ -76,8 +87,7 @@ const HealthIdCreateForm = () => {
                 <View style={styles.buttonView}>
                     <Button
                         onPress={handleSubmit(onCreateHealthIdFormSubmit)}
-                        // disabled={!isFormValid || isHealthIdExist}
-                    >
+                        style={{ backgroundColor: '#1e91a3' }}>
                         <Text color={white} fontType="bold">
                             Generate ABHA Number
                         </Text>

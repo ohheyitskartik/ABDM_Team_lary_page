@@ -14,14 +14,6 @@ const styles = StyleSheet.create({
     card: {
         width: '80%',
         height: verticalScale(150),
-        shadowColor: black,
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
-        elevation: 6,
         padding: scale(10),
         backgroundColor: white,
         borderRadius: 15,
