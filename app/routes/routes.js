@@ -6,6 +6,8 @@ import ValidateOTPScreen from '../container/abha-creation/validate-otp';
 import AbhaSelectorScreen from '../container/abha-creation/abha-address-selector';
 import CreateAbhaAddressScreen from '../container/abha-creation/create-address';
 import TrackerScreen from '../container/tracker';
+import AmbeeScreen from '../container/ambee';
+import FamilyFormScreen from '../container/family-form';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +20,8 @@ const MainStack = () => {
             <Stack.Screen name="Select Abha Address" component={AbhaSelectorScreen} />
             <Stack.Screen name="Create your Abha Address" component={CreateAbhaAddressScreen} />
             <Stack.Screen name="Tracker" component={TrackerScreen} />
+            <Stack.Screen name="Ambee" component={AmbeeScreen} />
+            <Stack.Screen name="Family Form" component={FamilyFormScreen} />
         </Stack.Navigator>
     );
 };

@@ -9,7 +9,7 @@ const OTPConfigs = {
     INTERVAL: 1000,
 };
 
-export const useValidateOTP = () => {
+export const useValidateOTP = ({ confirm, screenName }) => {
     const navigation = useNavigation();
     const [OTP, setOTP] = useState('');
     const [showLoader, setShowLoader] = useState(false);
@@ -37,11 +37,16 @@ export const useValidateOTP = () => {
             setErrorMessage('Please enter a valid 6 digit otp !');
         }
         console.log('handlesubmit', otpValues);
-        navigation.navigate('Select Abha Address', {
-            mobileNumber: '',
-            token: '',
-            mappedPhrAddress: ['nis124@sbx'],
-        });
+        if (screenName === 'OTP') {
+            confirm(otpValues);
+        } else {
+            navigation.navigate('Select Abha Address', {
+                mobileNumber: '',
+                token: '',
+                mappedPhrAddress: ['nis124@sbx'],
+            });
+        }
+
         //   here code to navigate and validate
     };
 

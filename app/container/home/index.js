@@ -12,7 +12,7 @@ const Home = () => {
             .then(() => console.log('User signed out!'));
     };
 
-    console.log(auth().currentUser);
+    console.log(auth().currentUser.uid);
 
     useEffect(() => {
         // database()
@@ -49,6 +49,8 @@ const Home = () => {
                 <Text>Create your Abha Address</Text>
             </TouchableOpacity>
             <Button title="Tracker" onPress={() => navigation.navigate('Tracker')} />
+            <Button title="Ambee" onPress={() => navigation.navigate('Ambee')} />
+            <Button title="Family Form" onPress={() => navigation.navigate('Family Form')} />
             <Button title="Sign Out" onPress={signOut} />
         </View>
     );
