@@ -25,10 +25,10 @@ const FamilyForm = () => {
             .ref(`/users/u-${uid}/family-history`)
             .once('value')
             .then((snapshot) => {
-                setFatherGenD(snapshot.val()?.fatherData?.fatherGenD);
-                setFatherAllergies(snapshot.val()?.fatherData?.fatherAllergies);
-                setMotherGenD(snapshot.val()?.motherData?.motherGenD);
-                setMotherAllergies(snapshot.val()?.motherData?.motherAllergies);
+                setFatherGenD(snapshot.val()?.fatherData?.fatherGenD || []);
+                setFatherAllergies(snapshot.val()?.fatherData?.fatherAllergies || []);
+                setMotherGenD(snapshot.val()?.motherData?.motherGenD || []);
+                setMotherAllergies(snapshot.val()?.motherData?.motherAllergies || []);
             });
     }, []);
 
