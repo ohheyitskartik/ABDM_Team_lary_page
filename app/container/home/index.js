@@ -49,6 +49,7 @@ const Home = () => {
                 <Text>Create your Abha Address</Text>
             </TouchableOpacity>
             <Button title="Tracker" onPress={() => navigation.navigate('Tracker')} />
+            <Button title="Dashboard" onPress={() => navigation.navigate('Dashboard')} />
             <Button title="Sign Out" onPress={signOut} />
         </View>
     );
