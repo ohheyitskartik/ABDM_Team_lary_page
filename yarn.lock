@@ -7320,11 +7320,6 @@ react-native-popup-menu@^0.15.12:
   resolved "https://registry.yarnpkg.com/react-native-popup-menu/-/react-native-popup-menu-0.15.12.tgz#386852f4245f8d661a5003776989b9b55c9ce381"
   integrity sha512-33zMqHW+7rt5m2Bgg7xM8jy1guIdUCE8qJfznYYNRlIt4+fJX/rDcwmJIrkSGrvfhlhhEaG3otW6h25uFZLFfg==
 
-react-native-popup-view@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/react-native-popup-view/-/react-native-popup-view-0.1.2.tgz#66ec7851b105c5658c6c87703b321a924a8ae6b6"
-  integrity sha512-EQV1Udml8r+wxcXCBdwEK70dEgQIKxedPbUNDjRxpu3+SC/v+MfMsU3x83WC0+e144tsNbEzSA7T/gCDhB6p2g==
-
 react-native-progress@4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/react-native-progress/-/react-native-progress-4.1.2.tgz#ffb2264ddfeba409c730e36a9791bb7bbe07a00d"
