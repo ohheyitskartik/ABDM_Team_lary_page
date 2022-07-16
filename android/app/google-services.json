@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "602188652604",
+    "project_id": "aarogyacare-abdm",
+    "storage_bucket": "aarogyacare-abdm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602188652604:android:6d5bc16434a85b3c3a6339",
+        "android_client_info": {
+          "package_name": "com.aarogyacare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "602188652604-f2n0d2qt085sd8is840nkd0qtc641sla.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aarogyacare",
+            "certificate_hash": "b1409bff6f045fc1b24911d33a6a42ed720796d2"
+          }
+        },
+        {
+          "client_id": "602188652604-bfe24pm2r1u41klaubs68smusscim0rv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaiSaL3JQYy8zDlFyWR1BE2hPUGlJrIg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "602188652604-bfe24pm2r1u41klaubs68smusscim0rv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "602188652604-3jplm7p82khjhvsui2qock7a2ku6or7o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.aarogya-care"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

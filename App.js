@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { MenuProvider } from 'react-native-popup-menu';
-import MainStack from './app/routes/routes';
+import Auth from './app/auth';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -23,7 +23,7 @@ const App = () => {
             <MenuProvider>
                 <QueryClientProvider client={queryClient}>
                     <NavigationContainer initialRouteName="Home">
-                        <MainStack />
+                        <Auth />
                     </NavigationContainer>
                 </QueryClientProvider>
             </MenuProvider>
