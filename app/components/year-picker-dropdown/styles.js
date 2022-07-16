@@ -44,7 +44,7 @@ export default StyleSheet.create({
     },
     box: {
         flexDirection: 'row',
-        borderColor: colorCongratsRelation,
+        borderColor: '#1e91a3',
         borderWidth: 1,
         paddingHorizontal: scale(12),
         borderRadius: scale(8),

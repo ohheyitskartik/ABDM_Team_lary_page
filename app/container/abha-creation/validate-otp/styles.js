@@ -82,11 +82,11 @@ export default StyleSheet.create({
         marginBottom: verticalScale(-4),
     },
     editStyle: {
-        color: blueberry,
         fontSize: scale(11),
         alignSelf: 'flex-start',
         marginTop: scale(10),
         marginLeft: scale(5),
+        color: '#1e91a3',
     },
     otpTimerContainer: {
         marginTop: scale(15),
@@ -122,5 +122,6 @@ export default StyleSheet.create({
     },
     nextCTA: {
         width: '40%',
+        backgroundColor: '#1e91a3',
     },
 });

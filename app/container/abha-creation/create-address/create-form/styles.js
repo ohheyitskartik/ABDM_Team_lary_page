@@ -9,7 +9,6 @@ export default StyleSheet.create({
     formContainer: {
         marginTop: verticalScale(15),
         paddingHorizontal: scale(15),
-        paddingBottom: verticalScale(15),
     },
     buttonView: {
         marginTop: scale(15),

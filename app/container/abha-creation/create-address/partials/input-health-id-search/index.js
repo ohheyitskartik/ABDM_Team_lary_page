@@ -27,12 +27,10 @@ const InputHealthIdSearch = ({
                 control={control}
                 render={({ field: { onBlur, onChange, value } }) => (
                     <View style={styles.textFieldView}>
-                        <Text color={brandDark} fontType="bold" style={styles.textInputHeader}>
-                            {inputHeader}
-                        </Text>
                         <View style={styles.ndhmTextInputContainer}>
                             <Wrapper style={[separate && styles.textInputBorder]}>
                                 <TextInput
+                                    placeholder={inputHeader}
                                     style={styles.healthIdTextInput}
                                     autoCapitalize="none"
                                     onChangeText={(text) => {
@@ -59,7 +57,7 @@ const InputHealthIdSearch = ({
                                 </View>
                             )}
                             <View style={styles.ndhmView}>
-                                <Text fontType="bold">@abdm</Text>
+                                <Text color="white" fontType="bold">@abdm</Text>
                             </View>
                         </View>
                         {(!!formErrors[keyName] ||

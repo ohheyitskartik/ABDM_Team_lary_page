@@ -6,7 +6,7 @@ import Text from '../text';
 import Icon from '../icon';
 import Card from '../card';
 import styles, { baseWidth } from './styles';
-import { scale } from '../../../utils';
+import { scale, verticalScale } from '../../../utils';
 import { lightBlueShade, white, colorCongratsRelation, blackMatte } from '../../../colors';
 
 const { computePosition } = renderers.ContextMenu;
@@ -41,7 +41,7 @@ const DateBox = (props) => {
                     style={[
                         styles.box,
                         {
-                            paddingVertical: scale(props?.paddingV || 17),
+                            paddingVertical: verticalScale(9),
                             backgroundColor: props.value ? lightBlueShade : white,
                         },
                         props.fieldErrorStyle,

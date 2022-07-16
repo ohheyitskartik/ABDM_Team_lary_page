@@ -30,7 +30,7 @@ export default function RequestOtp() {
                 <View style={styles.flexContainer}>
                     <View style={styles.nineOneContainer}>
                         {/* <FastImage source={images.flag} style={styles.flagImg} /> */}
-                        <Text style={styles.nineOneText} fontType="bold">
+                        <Text color="white" style={styles.nineOneText} fontType="bold">
                             +91
                         </Text>
                     </View>
@@ -40,7 +40,7 @@ export default function RequestOtp() {
                             {
                                 borderColor: tickScaleAnim.interpolate({
                                     inputRange: [0, 1],
-                                    outputRange: [grey, blueberry],
+                                    outputRange: [grey, '#1e91a3'],
                                 }),
                             },
                         ]}>

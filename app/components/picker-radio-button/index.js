@@ -24,6 +24,8 @@ const PickerRadioButton = ({ data, currentSelection, selected }) => {
                             {item}
                         </Text>
                         <RadioButton
+                            color="#1e91a3"
+                            colorSelected="#1e91a3"
                             onPress={() => {
                                 setCurrentSelection(item);
                             }}
