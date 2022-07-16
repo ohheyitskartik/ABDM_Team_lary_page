@@ -2,7 +2,6 @@ import { View } from 'react-native';
 import React from 'react';
 import { Controller } from 'react-hook-form';
 import Text from '../../../../../components/text';
-import { brandDark } from '../../../../../../colors';
 import GenderCheckBox from '../gender-checkbox/index.js';
 import styles from './styles';
 
@@ -20,7 +19,7 @@ const InputCheckBox = ({ control, formErrors, keyName, inputHeader, defaultValue
                 control={control}
                 render={({ field: { onChange, value } }) => (
                     <View>
-                        <Text color={brandDark} fontType="bold" style={styles.checkBoxHeader}>
+                        <Text color="#1e91a3" fontType="bold" style={styles.checkBoxHeader}>
                             {inputHeader}
                         </Text>
                         <GenderCheckBox

@@ -1,10 +1,11 @@
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { useState } from 'react';
 
 export const useAbhaselector = () => {
     const [selected, setSelected] = useState(null);
 
     const route = useRoute();
+    const navigation = useNavigation();;
 
     const { mobileNumber = '', token = '', mappedPhrAddress = ['nis124@sbx'] } = route.params;
 
@@ -19,6 +20,7 @@ export const useAbhaselector = () => {
 
     const onPress = () => {
         console.log('onpress ScreeName: Selector');
+        navigation.navigate('My ABHA');
     };
 
     return {

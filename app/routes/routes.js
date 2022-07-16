@@ -8,6 +8,7 @@ import CreateAbhaAddressScreen from '../container/abha-creation/create-address';
 import TrackerScreen from '../container/tracker';
 import AmbeeScreen from '../container/ambee';
 import FamilyFormScreen from '../container/family-form';
+import AbhaDetailsScreen from '../container/abha-creation/abha-details';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ const MainStack = () => {
             <Stack.Screen name="Tracker" component={TrackerScreen} />
             <Stack.Screen name="Ambee" component={AmbeeScreen} />
             <Stack.Screen name="Family Form" component={FamilyFormScreen} />
+            <Stack.Screen name="My ABHA" component={AbhaDetailsScreen} />
         </Stack.Navigator>
     );
 };
