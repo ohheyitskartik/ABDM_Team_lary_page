@@ -1,0 +1,17 @@
+export const grey = '#E6E6E6';
+export const blueberry = '#5C2D90';
+export const lightGrey = '#EBEBEB';
+export const rippleViolet = 'rgb(155, 89, 236) ';
+export const splashViolet = 'rgb(122,56,203)';
+export const silverChalice = '#aaa';
+export const green6 = '#1BB934';
+export const creamishPurple = '#dcd3f1';
+export const black = '#000';
+export const white = '#fff';
+export const blackMatte = '#252525';
+export const cerulean = '#0069B4';
+export const brandDark = '#542885';
+export const brightOrange = '#f19f93';
+export const purpleTint = '#7b65bb';
+export const colorCongratsRelation = '#979797';
+export const lightBlueShade = '#F2F3FA';
