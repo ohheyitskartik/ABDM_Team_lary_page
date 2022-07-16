@@ -2,7 +2,6 @@ import { View } from 'react-native';
 import React from 'react';
 import { Controller } from 'react-hook-form';
 import Text from '../../../../../components/text';
-import { brandDark } from '../../../../../../colors';
 import GenderCheckBox from '../gender-checkbox/index.js';
 import styles from './styles';
 
@@ -37,20 +36,3 @@ const InputCheckBox = ({ control, formErrors, keyName, inputHeader, defaultValue
 };
 
 export default InputCheckBox;
-// textInput: {
-
-//     borderWidth: 1,
-
-//     padding: 14,
-
-//     borderRadius: 12,
-
-//     fontSize: 16,
-
-//     marginVertical: 10,
-
-//     width: '70%',
-
-//     marginRight: 10,
-
-//     },
