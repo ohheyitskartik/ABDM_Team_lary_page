@@ -5,7 +5,6 @@ import { useMutation, useQuery } from 'react-query';
 import { useNavigation } from '@react-navigation/native';
 import { checkForValidNumber } from '../../../../utils';
 import { abdmApis } from '../../../apis';
-import { variables } from '../../../../env-config';
 
 export const useRequestOTP = () => {
     const tickScaleAnim = useRef(new Animated.Value(0)).current;
