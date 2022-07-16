@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import LottieView from 'lottie-react-native';
 import database from '@react-native-firebase/database';
 import auth from '@react-native-firebase/auth';
+import { useRoute } from '@react-navigation/native';
 import familyAnimation from '../../../res/animations/family.json';
 import Menu from './menu';
 import { allergies } from './allergies';
@@ -12,24 +13,32 @@ import Button2 from '../../components/button2';
 const FamilyForm = () => {
     const hisText =
         'A family health history can identify people with a higher-than-usual chance of having common disorders, such as heart disease, high blood pressure, stroke, certain cancers, and type 2 diabetes.';
+    const { uid } = auth().currentUser;
+    const route = useRoute();
+    const { familyData } = route.params;
 
     const [fatherAllergies, setFatherAllergies] = useState([]);
     const [fatherGenD, setFatherGenD] = useState([]);
     const [motherAllergies, setMotherAllergies] = useState([]);
     const [motherGenD, setMotherGenD] = useState([]);
 
-    const { uid } = auth().currentUser;
-
     useEffect(() => {
-        database()
-            .ref(`/users/u-${uid}/family-history`)
-            .once('value')
-            .then((snapshot) => {
-                setFatherGenD(snapshot.val()?.fatherData?.fatherGenD || []);
-                setFatherAllergies(snapshot.val()?.fatherData?.fatherAllergies || []);
-                setMotherGenD(snapshot.val()?.motherData?.motherGenD || []);
-                setMotherAllergies(snapshot.val()?.motherData?.motherAllergies || []);
-            });
+        if (!familyData) {
+            database()
+                .ref(`/users/u-${uid}/family-history`)
+                .once('value')
+                .then((snapshot) => {
+                    setFatherGenD(snapshot.val()?.fatherData?.fatherGenD || []);
+                    setFatherAllergies(snapshot.val()?.fatherData?.fatherAllergies || []);
+                    setMotherGenD(snapshot.val()?.motherData?.motherGenD || []);
+                    setMotherAllergies(snapshot.val()?.motherData?.motherAllergies || []);
+                });
+        } else {
+            setFatherGenD(familyData?.fatherData?.fatherGenD || []);
+            setFatherAllergies(familyData?.fatherData?.fatherAllergies || []);
+            setMotherGenD(familyData?.motherData?.motherGenD || []);
+            setMotherAllergies(familyData?.motherData?.motherAllergies || []);
+        }
     }, []);
 
     const handlePress = () => {
