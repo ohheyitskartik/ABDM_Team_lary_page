@@ -4,8 +4,8 @@ import { useMutation } from 'react-query';
 import { RNS3 } from 'react-native-aws3';
 import { Buffer } from 'buffer';
 import auth from '@react-native-firebase/auth';
-import { createPhrAddress, fetchAbhaCard } from '../../../api/index';
-import { envVars } from '../../../../env-config';
+import { createPhrAddress } from '../../../api/index';
+import { envVars } from '../../../../env.config';
 
 export const useAbhaselector = () => {
     const [selected, setSelected] = useState(null);
@@ -73,8 +73,6 @@ export const useAbhaselector = () => {
                         imageUrl,
                     });
                 });
-
-                // getPngMutate(token);
             },
         },
     );
