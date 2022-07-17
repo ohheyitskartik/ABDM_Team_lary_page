@@ -4,13 +4,7 @@ import { scale, verticalScale } from '../../../utils';
 import Text from '../text';
 import CustomIcon from '../icon';
 
-const LifeStyleCard = ({
-    calories = '--',
-    totalDistance = '--',
-    hrv = '--',
-    polen = '--',
-    airQuality = '--',
-}) => {
+const LifeStyleCard = ({ calories = '--', hrv = '--', polen = '--', airQuality = '--' }) => {
     return (
         <View
             style={{

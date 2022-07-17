@@ -15,18 +15,14 @@ const Dashboard = () => {
 
     const { data: HealthData, isFetched, syncAppleHealth } = useAppleHealthData();
 
-    useEffect(() => {
-        // console.log('HEALTHDATA', HealthData);
-    }, [HealthData]);
     return (
         <>
             <View style={styles.contentContainer}>
-                <WelcomeCard name="Kartik" />
+                <WelcomeCard />
                 <OverViewCard />
                 <LifeStyleCard
-                    calories={456}
-                    totalDistance="3.5"
-                    hrv={24}
+                    hrv={HealthData?.hrv}
+                    calories={HealthData?.caloriesBurned}
                     airQuality={data?.stations[0]?.aqiInfo?.category}
                     polen={pollenData?.data[0]?.Risk?.weed_pollen}
                 />

@@ -1,4 +1,4 @@
-import { Modal, View } from 'react-native';
+import { Modal, View, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Lottie from 'lottie-react-native';
 import CharacterAnimation from '../../../assets/animations/character.json';
@@ -8,6 +8,8 @@ import CustomIcon from '../icon';
 
 const WelcomeCard = ({ name }) => {
     const [openModal, setOpenModal] = useState(false);
+
+    const onAnimationFinish = () => {};
     return (
         <View
             style={{
@@ -40,31 +42,36 @@ const WelcomeCard = ({ name }) => {
                     alignItems: 'flex-start',
                 }}>
                 <Text fontType="bold" style={{ marginBottom: 3 }}>
-                    Hello, {name}
+                    Hello, User
                 </Text>
                 <Text color="#878787">Let's check your stats</Text>
             </View>
             <View style={{ position: 'absolute', right: 0 }}>
-                <CustomIcon
-                    variant="ionicons"
-                    name="download"
-                    size={20}
-                    color="black"
-                    solid
-                    style={{ marginRight: 18 }}
-                />
-            </View>
-            <Modal visible={openModal}>
-                <View style={{ position: 'absolute', top: 60, right: 10 }}>
+                <TouchableOpacity onPress={() => setOpenModal(true)}>
                     <CustomIcon
                         variant="ionicons"
-                        name="close"
-                        size={30}
+                        name="download"
+                        size={20}
                         color="black"
                         solid
-                        style={{ marginRight: 18 }}
+                        style={{ padding: 15 }}
                     />
+                </TouchableOpacity>
+            </View>
+            <Modal visible={openModal}>
+                <View style={{ position: 'absolute', top: 40, right: 5, zIndex: 2 }}>
+                    <TouchableOpacity onPress={() => setOpenModal(false)}>
+                        <CustomIcon
+                            variant="ionicons"
+                            name="close"
+                            size={30}
+                            color="black"
+                            solid
+                            style={{ padding: 18 }}
+                        />
+                    </TouchableOpacity>
                 </View>
+
                 <View
                     style={{
                         flex: 1,
@@ -78,8 +85,9 @@ const WelcomeCard = ({ name }) => {
                             height: 200,
                             width: 200,
                         }}
+                        onAnimationFinish={onAnimationFinish}
                         autoPlay
-                        loop
+                        loop={false}
                     />
                     <Text style={{ textAlign: 'center' }}>
                         {'Processing your Health Data,\nthis might take a minute'}
