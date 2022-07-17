@@ -47,7 +47,7 @@ const DateBox = (props) => {
                         props.fieldErrorStyle,
                     ]}>
                     <View style={styles.boxLabel}>
-                        <Text fontType="regular" color={colorCongratsRelation}>
+                        <Text fontType="normal" color={colorCongratsRelation}>
                             {props.value || props.label}
                         </Text>
                     </View>
@@ -65,7 +65,7 @@ const DateBox = (props) => {
                         key={option}
                         onSelect={() => props.onChange(option)}
                         style={styles.option}>
-                        <Text fontType="regular" color={blackMatte}>
+                        <Text fontType="normal" color={blackMatte}>
                             {option}
                         </Text>
                     </MenuOption>

@@ -19,5 +19,27 @@ export const useAmbee = () => {
 
     const { data, isFetching } = useQuery('ambee-data', fetchData);
 
-    return { data, isFetching };
+    const optionsPollen = {
+        method: 'GET',
+        url: 'https://api.ambeedata.com/latest/pollen/by-place',
+        params: { place: 'sinhagadh,pune' },
+        headers: { 'x-api-key': ambeeKey, 'Content-type': 'application/json' },
+    };
+
+    const fetchDataPollen = async () => {
+        const dataTwo = await axios
+            .get(optionsPollen.url, {
+                headers: optionsPollen.headers,
+                params: optionsPollen.params,
+            })
+            .then((response) => response.data);
+        return dataTwo;
+    };
+
+    const { data: pollenData, isFetching: isFetchingPollenData } = useQuery(
+        'ambee-data-pollen',
+        fetchDataPollen,
+    );
+
+    return { data, isFetching, pollenData, isFetchingPollenData };
 };
