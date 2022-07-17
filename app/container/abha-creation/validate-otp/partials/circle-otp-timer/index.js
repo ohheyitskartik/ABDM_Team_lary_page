@@ -21,7 +21,7 @@ const CircleOTPTimer = ({ timerDuration, resendOtp }) => {
         <View style={[styles.flexContainer, styles.otpTimerContainer]}>
             {timerDuration > 0 && getTimerText(timerDuration) !== '00' && (
                 <View style={styles.flexContainer}>
-                    <Text size={12} fontType="medium" color={grey}>
+                    <Text size={12} fontType="bold" color={grey}>
                         Resend OTP in{' '}
                     </Text>
                     <View>

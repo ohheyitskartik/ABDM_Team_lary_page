@@ -1,17 +1,24 @@
 import { ScrollView, View } from 'react-native';
 import React from 'react';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, CommonActions } from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import styles from './styles';
 import HealthIdImage from './abha-card-image';
 import Button from '../../../components/button';
 import { height, scale, width } from '../../../../utils';
+import { useUploadFiles } from './hooks';
 
-const AbhaDetailsScreen = () => {
+const AbhaDetailsScreen = (props) => {
     const route = useRoute();
     const {
         params: { healthId, name, dateOfBirth, verifiedIdentifiers, imageUrl },
     } = route;
+    const { uploadGeneratedReportMutate } = useUploadFiles({
+        healthId,
+        name,
+        mobileNumber: verifiedIdentifiers[0].value,
+        fileLink: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    });
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -28,11 +35,12 @@ const AbhaDetailsScreen = () => {
                 <FastImage
                     source={{ uri: imageUrl }}
                     style={{
-                        width,
-                        height: height / 3,
-                        justifyContent: 'center',
-                        alignItems: 'center',
+                        width: width + 300,
+                        height: height / 2,
+                        alignSelf: 'center',
                         borderRadius: 12,
+                        marginTop: -25,
+                        marginBottom: 40,
                     }}
                     resizeMode={FastImage.resizeMode.contain}
                 />
@@ -42,7 +50,17 @@ const AbhaDetailsScreen = () => {
                         justifyContent: 'flex-end',
                         marginHorizontal: scale(40),
                     }}>
-                    <Button style={{ backgroundColor: '#1e91a3' }}>Upload My Document</Button>
+                    <Button
+                        onPress={() => {
+                            const resetAction = CommonActions.reset({
+                                index: 1,
+                                routes: [{ name: 'Dashboard' }],
+                            });
+                            props.navigation.dispatch(resetAction);
+                        }}
+                        style={{ backgroundColor: '#1e91a3' }}>
+                        Go to Home
+                    </Button>
                 </View>
             </ScrollView>
         </View>

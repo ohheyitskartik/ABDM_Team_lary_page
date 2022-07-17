@@ -32,7 +32,7 @@ export default function AbhaCardImage({ healthId, name, verifiedIdentifiers }) {
                     </View>
                     <View style={{ padding: 10, justifyContent: 'center' }}>
                         <View style={{ flexDirection: 'row' }}>
-                            <Text style={styles.text}>{`${name.first} ${name.last}`}t</Text>
+                            <Text style={styles.text}>{`${name.first} ${name.last}`}</Text>
                         </View>
                         <View style={{ flexDirection: 'row' }}>
                             <Text style={[styles.text]}>PHR Address : </Text>

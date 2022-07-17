@@ -321,9 +321,13 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
+  - react-native-blob-util (0.13.7):
+    - React-Core
   - react-native-geolocation-service (5.3.0):
     - React
-  - react-native-pdf (6.4.0):
+  - react-native-html-to-pdf (0.12.0):
+    - React-Core
+  - react-native-pdf (6.5.0):
     - React-Core
   - react-native-rsa-native (2.0.5):
     - React
@@ -539,7 +543,9 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-aes (from `../node_modules/react-native-aes-crypto`)
   - react-native-background-timer (from `../node_modules/react-native-background-timer`)
+  - react-native-blob-util (from `../node_modules/react-native-blob-util`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
+  - react-native-html-to-pdf (from `../node_modules/react-native-html-to-pdf`)
   - react-native-pdf (from `../node_modules/react-native-pdf`)
   - react-native-rsa-native (from `../node_modules/react-native-rsa-native`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -640,8 +646,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-aes-crypto"
   react-native-background-timer:
     :path: "../node_modules/react-native-background-timer"
+  react-native-blob-util:
+    :path: "../node_modules/react-native-blob-util"
   react-native-geolocation-service:
     :path: "../node_modules/react-native-geolocation-service"
+  react-native-html-to-pdf:
+    :path: "../node_modules/react-native-html-to-pdf"
   react-native-pdf:
     :path: "../node_modules/react-native-pdf"
   react-native-rsa-native:
@@ -708,7 +718,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: e686045572151edef46010a6f819ade377dfeb4b
-  FBReactNativeSpec: 951c82c05d793be0dffbb6dd5765ff9f3165b8d2
+  FBReactNativeSpec: ad52df473d055c16908a266af47b49da182f84d1
   Firebase: 5f8193dff4b5b7c5d5ef72ae54bb76c08e2b841d
   FirebaseAuth: 3e73bf8abf4fbb40f8b421f361f4cc48ee57388c
   FirebaseCore: 5743c5785c074a794d35f2fff7ecc254a91e08b1
@@ -746,8 +756,10 @@ SPEC CHECKSUMS:
   React-jsinspector: cc614ec18a9ca96fd275100c16d74d62ee11f0ae
   react-native-aes: c75c46aa744bef7c2415fdf7f5b2dcb75ca4364d
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
+  react-native-blob-util: 9e7244030c741bb7720ef1744e0fbfbbd0eeae52
   react-native-geolocation-service: f32ef48fa665bd710207a3ac39bc127cac9cb993
-  react-native-pdf: a6a5a3f0bdf340eb2eed6c96034424d2cc3f84b0
+  react-native-html-to-pdf: 4c5c6e26819fe202971061594058877aa9b25265
+  react-native-pdf: de35db0d8f1e5d37e65e887554f7d4bd062af56b
   react-native-rsa-native: 12132eb627797529fdb1f0d22fd0f8f9678df64a
   react-native-safe-area-context: 114e9a74df2643012b9d6cc1460b94f3b6a90780
   react-native-shimmer: 2fdba9953215a29106febc9d147caa31a0080a8a
@@ -784,4 +796,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 170c831e029e01bb4bc87daa9aa6d4b3bcf84fba
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

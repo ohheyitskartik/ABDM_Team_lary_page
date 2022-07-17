@@ -16,9 +16,7 @@ const styles = StyleSheet.create({
         borderRadius: scale(15),
         paddingTop: verticalScale(15),
     },
-    chartHeading: {
-        alignSelf: 'flex-start',
-    },
+    chartHeading: {},
 });
 
 export default styles;

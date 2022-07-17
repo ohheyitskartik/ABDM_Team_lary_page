@@ -32,9 +32,29 @@ const Linegraph = () => {
 
     return (
         <View style={styles.container}>
-            <Text fontType="bold" style={styles.chartHeading}>
-                Recent Trends
-            </Text>
+            <View
+                style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    width: '100%',
+                }}>
+                <Text fontType="bold" style={styles.chartHeading}>
+                    Recent Trends
+                </Text>
+                <View
+                    style={{
+                        backgroundColor: 'black',
+                        borderRadius: 15,
+                        paddingHorizontal: 10,
+                        paddingVertical: 5,
+                        marginLeft: 8,
+                    }}>
+                    <Text color="white" size={10}>
+                        LifeStyle Trends
+                    </Text>
+                </View>
+            </View>
             <LineChart
                 data={data}
                 width={width - 20}

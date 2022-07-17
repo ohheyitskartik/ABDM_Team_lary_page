@@ -4,6 +4,7 @@ import { useMutation } from 'react-query';
 import { RNS3 } from 'react-native-aws3';
 import { Buffer } from 'buffer';
 import auth from '@react-native-firebase/auth';
+import AsyncStorage from '@react-native-community/async-storage';
 import { createPhrAddress } from '../../../api/index';
 import { envVars } from '../../../../env.config';
 
@@ -15,14 +16,13 @@ export const useAbhaselector = () => {
 
     const { params: { mobileNumber = '', mappedPhrAddress = [], sessionId } = {} } = useRoute();
 
-    // const settingAsync = async (healthId, tokenForHealthId) => {
-    //     try {
-    //         await SecureStorage.setItem(asyncStorageConstants.HEALTH_ADDRESS, healthId);
-    //         await SecureStorage.setItem(asyncStorageConstants.ABHA_TOKEN, tokenForHealthId);
-    //     } catch (err) {
-    //         logger.log('error details', err);
-    //     }
-    // };
+    const settingAsync = async (imageUrl) => {
+        try {
+            await AsyncStorage.setItem('ABHA_IMG_URL', imageUrl);
+        } catch (err) {
+            console.log('error details', err);
+        }
+    };
 
     const options = {
         keyPrefix: 'uploads/',
@@ -63,6 +63,7 @@ export const useAbhaselector = () => {
                     if (response.status !== 201) throw new Error('Failed to upload image to S3');
                     const { postResponse: { location: imageUrl = '' } = {} } = response.body;
                     setIsUploading(false);
+                    settingAsync(imageUrl);
                     navigation.navigate('My ABHA', {
                         healthId: id,
                         name,

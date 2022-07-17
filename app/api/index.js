@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { Buffer } from 'buffer';
 import { abdmApis } from './apis';
+import { envVars } from '../../env.config';
+
+
 
 export const generateOtp = (mobileNumber) =>
     axios({
@@ -44,6 +47,15 @@ export const createAbhaAddress = (formData) =>
     axios({
         method: 'post',
         url: abdmApis.createAddress,
+        data: {
+            ...formData,
+        },
+    });
+
+export const uploadFile = (formData) =>
+    axios({
+        method: 'post',
+        url: `${envVars.mockAPI}/files`,
         data: {
             ...formData,
         },
