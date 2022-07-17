@@ -10,8 +10,7 @@ import Dashboard from '../container/dashboard';
 import AmbeeScreen from '../container/ambee';
 import FamilyFormScreen from '../container/family-form';
 import AbhaDetailsScreen from '../container/abha-creation/abha-details';
-import HTMLScreen from '../container/htmlview';
-import ReportScreen from '../container/htmlview/view';
+import HealthReport from '../container/htmlview';
 
 const Stack = createStackNavigator();
 
@@ -28,8 +27,7 @@ const MainStack = () => {
             <Stack.Screen name="Ambee" component={AmbeeScreen} />
             <Stack.Screen name="Family Form" component={FamilyFormScreen} />
             <Stack.Screen name="My ABHA" component={AbhaDetailsScreen} />
-            <Stack.Screen name="HTMLView" component={HTMLScreen} />
-            <Stack.Screen name="Report Screen" component={ReportScreen} />
+            <Stack.Screen name="Health Report" component={HealthReport} />
         </Stack.Navigator>
     );
 };

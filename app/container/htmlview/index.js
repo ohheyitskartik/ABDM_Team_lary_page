@@ -9,7 +9,7 @@ import Button2 from '../../components/button2';
 
 const tbstyle = 'style="border: 1px solid black;border-collapse: collapse;"';
 
-const htmlview = () => {
+const HealthReport = () => {
     const date = ['10 July', '11 July', '12 July', '13 July'];
     const heartData = [100, 101, 80, 90];
     const steps = [10100, 10002, 9003, 7804];
@@ -138,22 +138,12 @@ const htmlview = () => {
     };
 
     return (
-        <ScrollView style={{ flex: 1, padding: 10 }}>
-            <Button2 text="Generate Report" onPress={genPDF} />
-            {isPdfAvailable && (
-                <Button2
-                    text="Show Report"
-                    onPress={() =>
-                        navigation.navigate('Report Screen', {
-                            html,
-                        })
-                    }
-                />
-            )}
+        <ScrollView style={{ padding: 15 }}>
+            <RenderHTML contentWidth={210} source={{ html }} />
         </ScrollView>
     );
 };
 
-export default htmlview;
+export default HealthReport;
 
 const styles = StyleSheet.create({});

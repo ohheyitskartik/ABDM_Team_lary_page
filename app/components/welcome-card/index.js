@@ -1,15 +1,20 @@
 import { Modal, View, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Lottie from 'lottie-react-native';
+import { useNavigation } from '@react-navigation/native';
 import CharacterAnimation from '../../../assets/animations/character.json';
 import DownloadAnimation from '../../../assets/animations/download.json';
 import Text from '../text';
 import CustomIcon from '../icon';
 
 const WelcomeCard = ({ name }) => {
+    const navigation = useNavigation();
     const [openModal, setOpenModal] = useState(false);
 
-    const onAnimationFinish = () => {};
+    const onAnimationFinish = () => {
+        setOpenModal(false);
+        navigation.navigate('Health Report');
+    };
     return (
         <View
             style={{
