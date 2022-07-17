@@ -17,24 +17,6 @@ const Dashboard = () => {
     const [url, setUrl] = useState();
 
     const { data: HealthData, isFetched, syncAppleHealth } = useAppleHealthData();
-<<<<<<< HEAD
-
-    return (
-        <>
-            <View style={styles.contentContainer}>
-                <WelcomeCard />
-                <OverViewCard />
-                <LifeStyleCard
-                    hrv={HealthData?.hrv}
-                    calories={HealthData?.caloriesBurned}
-                    airQuality={data?.stations[0]?.aqiInfo?.category}
-                    polen={pollenData?.data[0]?.Risk?.weed_pollen}
-                />
-                <AbhaNudge />
-                <Linegraph />
-            </View>
-
-=======
     useEffect(() => {
         const getFromAsyncStorage = async () => {
             try {
@@ -64,10 +46,8 @@ const Dashboard = () => {
                 airQuality={data?.stations[0]?.aqiInfo?.category}
                 polen={pollenData?.data[0]?.Risk?.weed_pollen}
             />
-            <AbhaNudge />
+            {!url ? <AbhaNudge /> : <CustomImage url={url} />}
             <Linegraph />
-            <CustomImage url={url} />
->>>>>>> origin/abha-image-component
             <Glass />
         </ScrollView>
     );

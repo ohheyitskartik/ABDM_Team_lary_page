@@ -27,7 +27,7 @@ const ValidateOTP = () => {
                 <Text fontType="bold" size={16}>
                     Enter OTP
                 </Text>
-                <Text size={12} fontType="medium">
+                <Text size={12} fontType="bold">
                     Enter six-digit verification code that you received on your number
                 </Text>
                 <View style={styles.flexContainer}>
@@ -47,7 +47,7 @@ const ValidateOTP = () => {
                 <View style={styles.flexContainer}>
                     <Text style={styles.otpSentText}> OTP sent to +91{mobileNumber}</Text>
                     <TouchableOpacity onPress={handleChangeNumber}>
-                        <Text fontType="semi-bold" style={styles.editStyle}>
+                        <Text fontType="normal" style={styles.editStyle}>
                             Change Number
                         </Text>
                     </TouchableOpacity>
