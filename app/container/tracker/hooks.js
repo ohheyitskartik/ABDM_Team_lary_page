@@ -19,7 +19,7 @@ const healthKitPermissions = {
     },
 };
 
-export const useSteps = () => {
+export const useAppleHealthData = () => {
     const [data, setData] = useState({});
     const [count, setCount] = useState(0);
     const startDate = new Date(2022, 6, 13).toISOString();

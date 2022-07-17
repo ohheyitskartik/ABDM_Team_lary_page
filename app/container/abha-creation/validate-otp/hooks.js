@@ -11,7 +11,7 @@ const OTPConfigs = {
     INTERVAL: 1000,
 };
 
-export const useValidateOTP = ({ sessionId, mobileNumber }) => {
+export const useValidateOTP = ({ confirm, screenName, sessionId, mobileNumber }) => {
     const navigation = useNavigation();
     const [OTP, setOTP] = useState('');
     const [showLoader, setShowLoader] = useState(false);
@@ -59,9 +59,12 @@ export const useValidateOTP = ({ sessionId, mobileNumber }) => {
         if (!OTPConfigs.OTP_REGEX.test(otpValues) || otpValues?.length !== 6) {
             setErrorMessage('Please enter a valid 6 digit otp !');
         }
-        validateOtpMutate();
 
-        //   here code to navigate and validate
+        if (screenName === 'OTP') {
+            confirm(otpValues);
+        } else {
+            validateOtpMutate();
+        }
     };
 
     const validityCheck = () => {

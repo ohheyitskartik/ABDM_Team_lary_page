@@ -8,7 +8,7 @@ import { scale } from '../../../utils';
 const textTransform = ['capitalize', 'uppercase', 'lowercase', 'none'];
 const fontTypes = [
     'light',
-    'regular',
+    'normal',
     'medium',
     'semi-bold',
     'bold',
@@ -21,7 +21,7 @@ const TextViewEnhanced = (props) => {
     const {
         size = 14,
         color = '#000',
-        fontType = 'regular',
+        fontType = 'normal',
         transform = 'none',
         style = {},
         numberOfLines,
@@ -33,6 +33,7 @@ const TextViewEnhanced = (props) => {
             {...props}
             style={[
                 {
+                    fontWeight: fontType,
                     fontSize: scale(size),
                     color,
                     textTransform: transform,
@@ -50,7 +51,7 @@ export default TextViewEnhanced;
 TextViewEnhanced.defaultProps = {
     size: 14,
     color: '#000',
-    fontType: 'regular',
+    fontType: 'normal',
     transform: 'none',
     style: {},
     numberOfLines: undefined,
@@ -61,7 +62,7 @@ TextViewEnhanced.propTypes = {
     color: PropTypes.string,
     fontType: PropTypes.oneOf([
         'light',
-        'regular',
+        'normal',
         'medium',
         'semi-bold',
         'bold',
