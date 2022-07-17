@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import LottieView from 'lottie-react-native';
 import database from '@react-native-firebase/database';
 import auth from '@react-native-firebase/auth';
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import familyAnimation from '../../../res/animations/family.json';
 import Menu from './menu';
 import { allergies } from './allergies';
@@ -11,6 +11,7 @@ import { disease } from './gen-disease';
 import Button2 from '../../components/button2';
 
 const FamilyForm = () => {
+    const navigation = useNavigation();
     const hisText =
         'A family health history can identify people with a higher-than-usual chance of having common disorders, such as heart disease, high blood pressure, stroke, certain cancers, and type 2 diabetes.';
     const { uid } = auth().currentUser;
@@ -93,7 +94,7 @@ const FamilyForm = () => {
                     list={allergies}
                     text="Allergy"
                 />
-                <Button2 text="Submit" onPress={handlePress} />
+                <Button2 text="Submit" onPress={() => navigation.navigate('Dashboard')} />
             </View>
         </ScrollView>
     );

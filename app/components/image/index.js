@@ -5,17 +5,16 @@ import { width } from '../../../utils';
 
 const CustomImage = ({ url }) => {
     return (
-        <View style={{ width: width - 20, height: 180 }}>
+        <View style={{ width, height: 530, alignItems: 'center', justifyContent: 'center' }}>
             <FastImage
                 source={{
                     uri: url,
                 }}
                 style={{
-                    width: width - 20,
-                    height: 200,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: 12,
+                    height: 530,
+                    width: 360,
+                    marginLeft: -30,
+                    borderRadius: 25,
                 }}
                 resizeMode={FastImage.resizeMode.cover}
             />

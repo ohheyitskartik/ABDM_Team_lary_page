@@ -25,7 +25,7 @@ const App = () => {
         <SafeAreaView style={{ backgroundColor: 'transparent', flex: 1 }}>
             <MenuProvider>
                 <QueryClientProvider client={queryClient}>
-                    <NavigationContainer initialRouteName="Home">
+                    <NavigationContainer>
                         <Auth />
                     </NavigationContainer>
                 </QueryClientProvider>

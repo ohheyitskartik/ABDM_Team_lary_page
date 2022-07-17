@@ -6,7 +6,7 @@ import styles from './styles';
 import abha from '../../../assets/animations/abha.json';
 import Text from '../text';
 
-const AbhaNudge = () => {
+const AbhaNudge = ({ imgUrl }) => {
     const navigation = useNavigation();
     return (
         <TouchableOpacity
@@ -22,7 +22,9 @@ const AbhaNudge = () => {
                 loop
             />
             <View>
-                <Text fontType="bold">Create your ABHA Now</Text>
+                <Text fontType="bold">
+                    {imgUrl ? 'Share your Report Using ABHA!' : 'Create your ABHA Now'}
+                </Text>
                 <Text size={12} color="#747373">
                     Share with a specialist to get a opinon now
                 </Text>

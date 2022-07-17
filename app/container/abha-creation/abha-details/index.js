@@ -1,6 +1,6 @@
 import { ScrollView, View } from 'react-native';
 import React from 'react';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, CommonActions } from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import styles from './styles';
 import HealthIdImage from './abha-card-image';
@@ -8,7 +8,7 @@ import Button from '../../../components/button';
 import { height, scale, width } from '../../../../utils';
 import { useUploadFiles } from './hooks';
 
-const AbhaDetailsScreen = () => {
+const AbhaDetailsScreen = (props) => {
     const route = useRoute();
     const {
         params: { healthId, name, dateOfBirth, verifiedIdentifiers, imageUrl },
@@ -35,11 +35,12 @@ const AbhaDetailsScreen = () => {
                 <FastImage
                     source={{ uri: imageUrl }}
                     style={{
-                        width,
-                        height: height / 3,
-                        justifyContent: 'center',
-                        alignItems: 'center',
+                        width: width + 300,
+                        height: height / 2,
+                        alignSelf: 'center',
                         borderRadius: 12,
+                        marginTop: -25,
+                        marginBottom: 40,
                     }}
                     resizeMode={FastImage.resizeMode.contain}
                 />
@@ -50,9 +51,15 @@ const AbhaDetailsScreen = () => {
                         marginHorizontal: scale(40),
                     }}>
                     <Button
-                        onPress={uploadGeneratedReportMutate}
+                        onPress={() => {
+                            const resetAction = CommonActions.reset({
+                                index: 1,
+                                routes: [{ name: 'Dashboard' }],
+                            });
+                            props.navigation.dispatch(resetAction);
+                        }}
                         style={{ backgroundColor: '#1e91a3' }}>
-                        Upload My Document
+                        Go to Home
                     </Button>
                 </View>
             </ScrollView>

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
+import { white } from '../../../colors';
 import { scale, verticalScale } from '../../../utils';
 
 const styles = StyleSheet.create({
@@ -9,7 +10,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         padding: 15,
-        flex: 1,
+        backgroundColor: white,
     },
 });
 

@@ -1,6 +1,8 @@
 import { View, Text, ScrollView } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import database from '@react-native-firebase/database';
 import styles from './styles';
 import WelcomeCard from '../../components/welcome-card';
 import OverViewCard from '../../components/overview-card';
@@ -11,8 +13,10 @@ import Linegraph from '../../components/line-graph';
 import { useAmbee } from '../ambee/hooks';
 import { useAppleHealthData } from '../tracker/hooks';
 import CustomImage from '../../components/image';
+import Auth from '../../auth';
 
 const Dashboard = () => {
+    const navigation = useNavigation();
     const { data, pollenData } = useAmbee();
     const [url, setUrl] = useState();
 
@@ -32,21 +36,23 @@ const Dashboard = () => {
         };
         getFromAsyncStorage();
     }, []);
+
     useEffect(() => {
-        // console.log('HEALTHDATA', HealthData);
-    }, [HealthData]);
+        if (!url) {
+            navigation.navigate('Family Form', {});
+        }
+    }, []);
     return (
         <ScrollView contentContainerStyle={styles.contentContainer}>
             <WelcomeCard name="Kartik" />
             <OverViewCard />
             <LifeStyleCard
-                calories={456}
-                totalDistance="3.5"
-                hrv={24}
+                calories={1283}
+                hrv={22}
                 airQuality={data?.stations[0]?.aqiInfo?.category}
                 polen={pollenData?.data[0]?.Risk?.weed_pollen}
             />
-            {!url ? <AbhaNudge /> : <CustomImage url={url} />}
+            <AbhaNudge imgUrl={url} />
             <Linegraph />
             <Glass />
         </ScrollView>

@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 
 const MainStack = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Dashboard">
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Request OTP" component={RequestOTPScreen} />
             <Stack.Screen name="Validate OTP" component={ValidateOTPScreen} />

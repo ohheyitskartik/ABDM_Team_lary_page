@@ -124,6 +124,11 @@ const HealthReport = () => {
           </table>
           <p>The current data shows that the user is active</p>
           <hr/>
+          <h2>Genetic History</h2>
+          <h3>Father : </h3><p>Diabetes</p>
+          <h3>Mother : </h3><p>Coronary artery disease</p>
+
+          <h3>    --------------Report Ends Here--------------</h3>
        
         </div>
 `;
@@ -138,7 +143,7 @@ const HealthReport = () => {
     };
 
     return (
-        <ScrollView style={{ padding: 15 }}>
+        <ScrollView style={{ padding: 15, backgroundColor: 'white' }}>
             <RenderHTML contentWidth={210} source={{ html }} />
         </ScrollView>
     );
