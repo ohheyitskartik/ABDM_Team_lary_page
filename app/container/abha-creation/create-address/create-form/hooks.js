@@ -4,11 +4,13 @@ import { Animated } from 'react-native';
 import { useForm } from 'react-hook-form';
 import moment from 'moment';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useMutation } from 'react-query';
 import { useDebounce } from '../../../../custom-hooks/use-debounce';
 // import SecureStorage from 'app/utils/secure-storage';
 // import asyncStorageConstants from 'app/constants/async-storage-strings';
 
 import { healthIdFormSchema } from './validation-schema';
+import { createAbhaAddress } from '../../../../api';
 
 const tickAnimationConfig = {
     toValue: 1,
@@ -18,15 +20,10 @@ const tickAnimationConfig = {
 
 export const useCreateId = () => {
     const navigation = useNavigation();
-    const [healthIdDetails, setHealthIdDetails] = useState({});
     const [glob, setGlob] = useState(undefined);
+    const [healthIdText, setHealthIdText] = useState(undefined);
 
-    const { params: { token = '', mobileNumber = '' } = {} } = useRoute();
-
-    const tickScaleAnim = useRef(new Animated.Value(0)).current;
-    const [isTick, setIsTick] = useState(false);
-    const [healthIdText, setHealthIdText] = useState('');
-    const deboucedHealthIdText = useDebounce(healthIdText, 1000);
+    const { params: { sessionId = '', mobileNumber = '' } = {} } = useRoute();
     const [isHealthIdModalVisible, setIsHealthIdModalVisible] = useState(false);
     const {
         control,
@@ -49,34 +46,38 @@ export const useCreateId = () => {
         },
     });
 
-    // const settingAsync = async (healthId, tokenForHealthId) => {
-    //     try {
-    //         await SecureStorage.setItem(asyncStorageConstants.HEALTH_ADDRESS, healthId);
-    //         await SecureStorage.setItem(asyncStorageConstants.ABHA_TOKEN, tokenForHealthId);
-    //     } catch (err) {
-    //         errorLogger.log('Error', err);
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     if (deboucedHealthIdText) {
-    //         checkExistHealthID({ healthId: deboucedHealthIdText });
-    //     }
-    // }, [deboucedHealthIdText]);
-
     const onCreateHealthIdFormSubmit = async (formData) => {
         setGlob(formData);
-        const { pin } = formData || {};
-        // fetchPincodeDetails(pin);
+        console.log(formData, 'formData');
+        createHealthId({
+            ...formData,
+            name: {
+                first: formData?.firstName,
+                last: formData?.lastName,
+            },
+            phrAddress: `${formData.healthId}@sbx`,
+            sessionId,
+            mobile: mobileNumber,
+            stateName: 'Maharashtra',
+            address: 'PUNE MH',
+            countryCode: '+91',
+            cityName: 'Pune',
+            stateCode: '7',
+            districtCode: '77',
+            pinCode: String(formData.pin),
+            alreadyExistedPHR: false,
+        });
     };
-
-    useEffect(() => {
-        if (isTick) {
-            Animated.timing(tickScaleAnim, tickAnimationConfig).start();
-        } else {
-            tickScaleAnim.setValue(0);
-        }
-    }, [isTick]);
+    const {
+        mutateAsync: createHealthId,
+        isLoading: isCreateHealthIdLoading,
+        error: healthIdCreateErrorResponse,
+    } = useMutation((values) => createAbhaAddress(values), {
+        onSuccess: () => {
+            // const { data: { sessionId: session = '' } = {} } = response.data;
+            navigation.navigate('Home');
+        },
+    });
 
     const handleErrorModalClose = () => {
         setIsHealthIdModalVisible(false);
@@ -85,12 +86,15 @@ export const useCreateId = () => {
     return {
         control,
         isFormValid,
-        tickScaleAnim,
+
         formErrors,
         isHealthIdModalVisible,
+        healthIdText,
         setHealthIdText,
         handleSubmit,
         onCreateHealthIdFormSubmit,
         handleErrorModalClose,
+        isCreateHealthIdLoading,
+        healthIdCreateErrorResponse,
     };
 };

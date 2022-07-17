@@ -42,22 +42,15 @@ const InputHealthIdSearch = ({
                                 />
                             </Wrapper>
 
-                            {!isHealthIdExist && (
-                                <Animated.View
-                                    style={[
-                                        styles.healthIdCorrectTick,
-                                        { transform: [{ scale: tickScaleAnim }] },
-                                    ]}>
-                                    <Icon name="checkcircle" variant="antdesign" color={green6} />
-                                </Animated.View>
-                            )}
                             {isHealthIdCheckLoading && (
                                 <View style={styles.healthIdCorrectTick}>
                                     <ActivityIndicator color={brandDark} />
                                 </View>
                             )}
                             <View style={styles.ndhmView}>
-                                <Text color="white" fontType="bold">@abdm</Text>
+                                <Text color="white" fontType="bold">
+                                    @abdm
+                                </Text>
                             </View>
                         </View>
                         {(!!formErrors[keyName] ||

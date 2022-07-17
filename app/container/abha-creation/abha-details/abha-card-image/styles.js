@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { black, blueberry, white } from '../../../../../colors';
+import { white } from '../../../../../colors';
 import { scale, verticalScale } from '../../../../../utils';
 
 const styles = StyleSheet.create({
