@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useEffect } from 'react';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Text, View, TouchableOpacity } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
@@ -11,23 +11,19 @@ const Home = () => {
             .signOut()
             .then(() => console.log('User signed out!'));
     };
+    const [familyData, setFamilyData] = useState(null);
+    const { uid } = auth().currentUser;
 
-    console.log(auth().currentUser);
-
-    useEffect(() => {
-        // database()
-        //     .ref('/users/u7007682448')
-        //     .once('value')
-        //     .then((snapshot) => {
-        //         console.log('User data: ', snapshot.val());
-        //     });
-        // database()
-        //     .ref('/users/u7007682448')
-        //     .update({
-        //         name: 'Muazzam',
-        //     })
-        //     .then(() => console.log('Data set.'));
-    }, []);
+    useFocusEffect(
+        useCallback(() => {
+            database()
+                .ref(`/users/u-${uid}/family-history`)
+                .once('value')
+                .then((snapshot) => {
+                    setFamilyData(snapshot.val());
+                });
+        }, []),
+    );
 
     const navigation = useNavigation();
     return (
@@ -49,6 +45,15 @@ const Home = () => {
                 <Text>Create your Abha Address</Text>
             </TouchableOpacity>
             <Button title="Tracker" onPress={() => navigation.navigate('Tracker')} />
+            <Button title="Ambee" onPress={() => navigation.navigate('Ambee')} />
+            <Button
+                title="Family Form"
+                onPress={() =>
+                    navigation.navigate('Family Form', {
+                        familyData,
+                    })
+                }
+            />
             <Button title="Sign Out" onPress={signOut} />
         </View>
     );
