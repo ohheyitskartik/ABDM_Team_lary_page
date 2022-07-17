@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "ipod": "cd ios; pod install; cd ..",
+    "podclean": "cd ios; pod deintegrate; cd .."
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.6",
@@ -17,6 +19,7 @@
     "@react-native-firebase/database": "^14.2.3",
     "@react-navigation/native": "^5.9.3",
     "@react-navigation/stack": "^5.14.3",
+    "@shopify/react-native-skia": "^0.1.136",
     "axios": "^0.27.2",
     "crypto": "^1.0.1",
     "crypto-js": "3.1.9-1",
@@ -24,6 +27,8 @@
     "hybrid": "^0.0.2",
     "hybrid-crypto-js": "^0.2.4",
     "lodash": "^4.17.21",
+    "lottie-ios": "3.2.3",
+    "lottie-react-native": "4.1.3",
     "moment": "^2.29.4",
     "moti": "^0.18.0",
     "native-base": "2.13.4",
@@ -36,6 +41,7 @@
     "react-native": "0.64.2",
     "react-native-aes-crypto": "^2.1.0",
     "react-native-background-timer": "^2.4.1",
+    "react-native-chart-kit": "^6.12.0",
     "react-native-fast-image": "^8.5.11",
     "react-native-geolocation-service": "^5.2.0",
     "react-native-gesture-handler": "^1.6.1",
@@ -48,7 +54,7 @@
     "react-native-pdf": "6.4.0",
     "react-native-permissions": "^3.0.1",
     "react-native-popup-menu": "^0.15.12",
-    "react-native-progress": "4.1.2",
+    "react-native-progress": "^5.0.0",
     "react-native-reanimated": "2.3.1",
     "react-native-rsa": "^0.0.3",
     "react-native-rsa-native": "^2.0.5",
@@ -56,7 +62,6 @@
     "react-native-screens": "3.10.1",
     "react-native-shimmer": "^0.6.0",
     "react-native-svg": "^12.1.1",
-    "react-native-svg-charts": "5.4.0",
     "react-native-vector-icons": "8.1.0",
     "react-query": "^3.39.1",
     "yup": "0.32.11"

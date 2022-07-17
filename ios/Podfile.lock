@@ -336,6 +336,35 @@ PODS:
   - react-native-shimmer (0.6.0):
     - React (>= 0.45.1)
     - Shimmer (~> 1)
+  - react-native-skia (0.1.136):
+    - React
+    - React-callinvoker
+    - React-Core
+    - react-native-skia/Api (= 0.1.136)
+    - react-native-skia/Jsi (= 0.1.136)
+    - react-native-skia/RNSkia (= 0.1.136)
+    - react-native-skia/SkiaHeaders (= 0.1.136)
+    - react-native-skia/Utils (= 0.1.136)
+  - react-native-skia/Api (0.1.136):
+    - React
+    - React-callinvoker
+    - React-Core
+  - react-native-skia/Jsi (0.1.136):
+    - React
+    - React-callinvoker
+    - React-Core
+  - react-native-skia/RNSkia (0.1.136):
+    - React
+    - React-callinvoker
+    - React-Core
+  - react-native-skia/SkiaHeaders (0.1.136):
+    - React
+    - React-callinvoker
+    - React-Core
+  - react-native-skia/Utils (0.1.136):
+    - React
+    - React-callinvoker
+    - React-Core
   - React-perflogger (0.64.2)
   - React-RCTActionSheet (0.64.2):
     - React-Core/RCTActionSheetHeaders (= 0.64.2)
@@ -515,6 +544,7 @@ DEPENDENCIES:
   - react-native-rsa-native (from `../node_modules/react-native-rsa-native`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-shimmer (from `../node_modules/react-native-shimmer`)
+  - "react-native-skia (from `../node_modules/@shopify/react-native-skia`)"
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -620,6 +650,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-shimmer:
     :path: "../node_modules/react-native-shimmer"
+  react-native-skia:
+    :path: "../node_modules/@shopify/react-native-skia"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -719,6 +751,7 @@ SPEC CHECKSUMS:
   react-native-rsa-native: 12132eb627797529fdb1f0d22fd0f8f9678df64a
   react-native-safe-area-context: 114e9a74df2643012b9d6cc1460b94f3b6a90780
   react-native-shimmer: 2fdba9953215a29106febc9d147caa31a0080a8a
+  react-native-skia: 7f1c17bb3ed15c951305d6c924df917899d21613
   React-perflogger: 25373e382fed75ce768a443822f07098a15ab737
   React-RCTActionSheet: af7796ba49ffe4ca92e7277a5d992d37203f7da5
   React-RCTAnimation: 6a2e76ab50c6f25b428d81b76a5a45351c4d77aa
@@ -751,4 +784,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 170c831e029e01bb4bc87daa9aa6d4b3bcf84fba
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

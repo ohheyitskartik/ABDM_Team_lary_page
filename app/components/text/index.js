@@ -21,7 +21,7 @@ const TextViewEnhanced = (props) => {
     const {
         size = 14,
         color = '#000',
-        fontType = 'regular',
+        fontType = 'normal',
         transform = 'none',
         style = {},
         numberOfLines,
@@ -33,6 +33,7 @@ const TextViewEnhanced = (props) => {
             {...props}
             style={[
                 {
+                    fontWeight: fontType,
                     fontSize: scale(size),
                     color,
                     textTransform: transform,

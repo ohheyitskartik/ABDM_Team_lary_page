@@ -45,6 +45,7 @@ const Home = () => {
                 <Text>Create your Abha Address</Text>
             </TouchableOpacity>
             <Button title="Tracker" onPress={() => navigation.navigate('Tracker')} />
+            <Button title="Dashboard" onPress={() => navigation.navigate('Dashboard')} />
             <Button title="Ambee" onPress={() => navigation.navigate('Ambee')} />
             <Button
                 title="Family Form"
