@@ -14,11 +14,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		348A768ABF62140ED020D7A5 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		63A3E0A29FA2D7F4B38182F6 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		7ED8BE808C08EA719E0CB46A /* libPods-aarogyacare-aarogyacareTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4317C7EA4ED04D0826B7A655 /* libPods-aarogyacare-aarogyacareTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		E8A21E176958E94D361834E8 /* libPods-aarogyacare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F27CE63DF40AE486471FDDC /* libPods-aarogyacare.a */; };
+		F7AC7FFABBA71C46266A2BE1 /* libPods-aarogyacare-aarogyacareTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E7FE789C1C9D324C8BFEF7 /* libPods-aarogyacare-aarogyacareTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
