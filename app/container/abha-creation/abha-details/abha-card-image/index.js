@@ -1,13 +1,12 @@
-import { View, Text, TouchableOpacity } from 'react-native';
-import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+import React from 'react';
 import FastImage from 'react-native-fast-image';
-import Overlay from 'react-native-modal-overlay';
+import PropTypes from 'prop-types';
 import styles from './styles';
 import { images } from './images';
 import { scale } from '../../../../../utils';
 
-export default function AbhaCardImage() {
-    const [showCard, setShowCard] = useState(false);
+export default function AbhaCardImage({ healthId, name, verifiedIdentifiers }) {
     return (
         <>
             <View style={styles.container}>
@@ -33,29 +32,25 @@ export default function AbhaCardImage() {
                     </View>
                     <View style={{ padding: 10, justifyContent: 'center' }}>
                         <View style={{ flexDirection: 'row' }}>
-                            <Text style={styles.text}>Nishanth Bhat</Text>
+                            <Text style={styles.text}>{`${name.first} ${name.last}`}t</Text>
                         </View>
                         <View style={{ flexDirection: 'row' }}>
                             <Text style={[styles.text]}>PHR Address : </Text>
-                            <Text style={styles.text}>nis124@sbx</Text>
+                            <Text style={styles.text}>{healthId}</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text style={[styles.text]}>Mobile Number : </Text>
+                            <Text style={styles.text}>{verifiedIdentifiers[0].value}</Text>
                         </View>
                     </View>
-                    <FastImage
-                        source={{
-                            uri: 'https://preview.redd.it/ofr9odcc60k81.png?width=640&crop=smart&auto=webp&s=d83b9237170c302b3d4315fec6d8cb1af1462c9b',
-                        }}
-                        style={{
-                            // width: '80%',
-                            // height: '80%',
-                            width: scale(220),
-                            height: scale(220),
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}
-                        resizeMode={FastImage.resizeMode.contain}
-                    />
                 </View>
             </View>
         </>
     );
 }
+
+AbhaCardImage.propTypes = {
+    healthId: PropTypes.string.isRequired,
+    name: PropTypes.object.isRequired,
+    verifiedIdentifiers: PropTypes.array.isRequired,
+};

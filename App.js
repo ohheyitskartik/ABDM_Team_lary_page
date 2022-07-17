@@ -1,9 +1,12 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, LogBox } from 'react-native';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { MenuProvider } from 'react-native-popup-menu';
 import Auth from './app/auth';
+
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();
 
 const queryClient = new QueryClient({
     defaultOptions: {

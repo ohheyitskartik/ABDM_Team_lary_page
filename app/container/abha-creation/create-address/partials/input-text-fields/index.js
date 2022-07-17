@@ -1,7 +1,6 @@
 import { View, TextInput } from 'react-native';
 import React from 'react';
 import { Controller } from 'react-hook-form';
-import { brandDark, blackMatte } from '../../../../../../colors';
 import Text from '../../../../../components/text';
 import styles from './styles';
 

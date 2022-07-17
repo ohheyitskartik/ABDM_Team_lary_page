@@ -1,4 +1,4 @@
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View, ActivityIndicator } from 'react-native';
 import React from 'react';
 import { useRoute } from '@react-navigation/native';
 import styles from './styles';
@@ -10,7 +10,7 @@ import { white } from '../../../../colors';
 
 const ValidateOTP = () => {
     const route = useRoute();
-    const { params: { mobileNumber = '', sessionId = '' } = {} } = route;
+    const { mobileNumber = '', sessionId = '' } = route.params;
     const {
         otpRefArray,
         otpArray,
@@ -18,6 +18,7 @@ const ValidateOTP = () => {
         handleBackSpacePress,
         onSubmit,
         handleChangeNumber,
+        verifyLoading,
     } = useValidateOTP({ sessionId, mobileNumber });
 
     return (
@@ -54,9 +55,13 @@ const ValidateOTP = () => {
             </View>
             <View style={styles.nextCTAContainer}>
                 <Button style={styles.nextCTA} onPress={onSubmit}>
-                    <Text color={white} fontType="bold">
-                        Next
-                    </Text>
+                    {verifyLoading ? (
+                        <ActivityIndicator color="#fff" />
+                    ) : (
+                        <Text color={white} fontType="bold">
+                            Next
+                        </Text>
+                    )}
                 </Button>
             </View>
         </>

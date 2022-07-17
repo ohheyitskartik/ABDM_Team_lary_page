@@ -1,7 +1,9 @@
 import { useRef, useState } from 'react';
 import BackgroundTimer from 'react-native-background-timer';
 import { useNavigation } from '@react-navigation/native';
+import { useMutation } from 'react-query';
 import { isIOS } from '../../../../utils';
+import { validateOtp } from '../../../api';
 
 const OTPConfigs = {
     TIMER_DURATION: 30,
@@ -9,7 +11,7 @@ const OTPConfigs = {
     INTERVAL: 1000,
 };
 
-export const useValidateOTP = ({ confirm, screenName }) => {
+export const useValidateOTP = ({ confirm, screenName, sessionId, mobileNumber }) => {
     const navigation = useNavigation();
     const [OTP, setOTP] = useState('');
     const [showLoader, setShowLoader] = useState(false);
@@ -31,23 +33,38 @@ export const useValidateOTP = ({ confirm, screenName }) => {
         fifthTextInputRef,
         sixthTextInputRef,
     ];
+    const { mutate: validateOtpMutate, isLoading: verifyLoading } = useMutation(
+        'validate-otp',
+        () => validateOtp(OTP, sessionId),
+        {
+            onSuccess: (data) => {
+                const { data: { data: { mappedPhrAddress = [] } = {} } = {} } = data;
+                if (mappedPhrAddress.length === 0) {
+                    navigation.navigate('Create your Abha Address', {
+                        sessionId,
+                        mobileNumber,
+                    });
+                } else {
+                    navigation.navigate('Select Abha Address', {
+                        mobileNumber,
+                        mappedPhrAddress,
+                        sessionId,
+                    });
+                }
+            },
+        },
+    );
 
     const handleSubmit = async (otpValues = OTP) => {
         if (!OTPConfigs.OTP_REGEX.test(otpValues) || otpValues?.length !== 6) {
             setErrorMessage('Please enter a valid 6 digit otp !');
         }
-        console.log('handlesubmit', otpValues);
+
         if (screenName === 'OTP') {
             confirm(otpValues);
         } else {
-            navigation.navigate('Select Abha Address', {
-                mobileNumber: '',
-                token: '',
-                mappedPhrAddress: ['nis124@sbx'],
-            });
+            validateOtpMutate();
         }
-
-        //   here code to navigate and validate
     };
 
     const validityCheck = () => {
@@ -152,5 +169,6 @@ export const useValidateOTP = ({ confirm, screenName }) => {
         handleChangeNumber,
         showLoader,
         setShowLoader,
+        verifyLoading,
     };
 };

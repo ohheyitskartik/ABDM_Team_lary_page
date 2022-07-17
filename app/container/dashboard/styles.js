@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
+import { scale, verticalScale } from '../../../utils';
 
 const styles = StyleSheet.create({
     container: {

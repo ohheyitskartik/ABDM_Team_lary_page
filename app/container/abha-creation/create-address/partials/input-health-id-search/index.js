@@ -15,11 +15,8 @@ const InputHealthIdSearch = ({
     isHealthIdCheckSuccess,
     isHealthIdCheckLoading,
     isHealthIdCheckError,
-    tickScaleAnim,
     setHealthIdText,
-    separate = false,
 }) => {
-    const Wrapper = separate ? View : React.Fragment;
     return (
         <>
             <Controller
@@ -28,59 +25,35 @@ const InputHealthIdSearch = ({
                 render={({ field: { onBlur, onChange, value } }) => (
                     <View style={styles.textFieldView}>
                         <View style={styles.ndhmTextInputContainer}>
-                            <Wrapper style={[separate && styles.textInputBorder]}>
-                                <TextInput
-                                    placeholder={inputHeader}
-                                    style={styles.healthIdTextInput}
-                                    autoCapitalize="none"
-                                    onChangeText={(text) => {
-                                        setHealthIdText(text);
-                                        return onChange(text.toLowerCase());
-                                    }}
-                                    onBlur={onBlur}
-                                    value={String(value)}
-                                />
-                            </Wrapper>
+                            <TextInput
+                                placeholder={inputHeader}
+                                style={styles.healthIdTextInput}
+                                autoCapitalize="none"
+                                onChangeText={(text) => {
+                                    setHealthIdText(text);
+                                    return onChange(text.toLowerCase());
+                                }}
+                                onBlur={onBlur}
+                                value={String(value)}
+                            />
 
-                            {!isHealthIdExist && (
-                                <Animated.View
-                                    style={[
-                                        styles.healthIdCorrectTick,
-                                        { transform: [{ scale: tickScaleAnim }] },
-                                    ]}>
-                                    <Icon name="checkcircle" variant="antdesign" color={green6} />
-                                </Animated.View>
-                            )}
-                            {isHealthIdCheckLoading && (
-                                <View style={styles.healthIdCorrectTick}>
-                                    <ActivityIndicator color={brandDark} />
-                                </View>
-                            )}
                             <View style={styles.ndhmView}>
-                                <Text color="white" fontType="bold">@abdm</Text>
+                                <Text color="white" fontType="bold">
+                                    @abdm
+                                </Text>
                             </View>
                         </View>
                         {(!!formErrors[keyName] ||
                             (isHealthIdExist && isHealthIdCheckSuccess) ||
-                            isHealthIdCheckError) &&
-                            separate && (
-                                <Text>
-                                    {formErrors[keyName]?.message ||
-                                        'This ABHA Number is not available, try again!'}
-                                </Text>
-                            )}
+                            isHealthIdCheckError) && (
+                            <Text>
+                                {formErrors[keyName]?.message ||
+                                    'This ABHA Number is not available, try again!'}
+                            </Text>
+                        )}
                     </View>
                 )}
             />
-            {(!!formErrors[keyName] ||
-                (isHealthIdExist && isHealthIdCheckSuccess) ||
-                isHealthIdCheckError) &&
-                !separate && (
-                    <Text>
-                        {formErrors[keyName]?.message ||
-                            'This ABHA Number is not available, try again!'}
-                    </Text>
-                )}
         </>
     );
 };

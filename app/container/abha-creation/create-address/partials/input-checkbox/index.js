@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 import React from 'react';
 import { Controller } from 'react-hook-form';
+import PropTypes from 'prop-types';
 import Text from '../../../../../components/text';
 import GenderCheckBox from '../gender-checkbox/index.js';
 import styles from './styles';
@@ -36,3 +37,10 @@ const InputCheckBox = ({ control, formErrors, keyName, inputHeader, defaultValue
 };
 
 export default InputCheckBox;
+InputCheckBox.propTypes = {
+    control: PropTypes.string.isRequired,
+    formErrors: PropTypes.string.isRequired,
+    keyName: PropTypes.string.isRequired,
+    inputHeader: PropTypes.string.isRequired,
+    defaultValue: PropTypes.string.isRequired,
+};

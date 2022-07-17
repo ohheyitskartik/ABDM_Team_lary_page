@@ -1,12 +1,5 @@
 import { StyleSheet } from 'react-native';
-import {
-    black,
-    white,
-    blackMatte,
-    lightGrey,
-    blueberry,
-    purpleTint,
-} from '../../../../../../colors';
+import { black, white } from '../../../../../../colors';
 import { scale, verticalScale } from '../../../../../../utils';
 
 export default StyleSheet.create({
