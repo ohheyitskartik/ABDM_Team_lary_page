@@ -11,17 +11,12 @@ import { useAmbee } from '../ambee/hooks';
 import { useAppleHealthData } from '../tracker/hooks';
 
 const Dashboard = () => {
-    const { data, isFetching, isFetchingPollenData, pollenData } = useAmbee();
-    useEffect(() => {
-        if (!isFetching) {
-            console.log('Data Pollen', isFetching, data.stations[0].aqiInfo.category);
-        }
-    }, [isFetching, isFetchingPollenData]);
+    const { data, pollenData } = useAmbee();
 
     const { data: HealthData, isFetched, syncAppleHealth } = useAppleHealthData();
 
     useEffect(() => {
-        console.log('HEALTHDATA', HealthData);
+        // console.log('HEALTHDATA', HealthData);
     }, [HealthData]);
     return (
         <>
