@@ -47,7 +47,7 @@ export const useValidateOTP = ({ sessionId, mobileNumber }) => {
                 } else {
                     navigation.navigate('Select Abha Address', {
                         mobileNumber,
-                        mappedPhrAddress: [],
+                        mappedPhrAddress,
                         sessionId,
                     });
                 }

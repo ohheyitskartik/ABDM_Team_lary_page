@@ -1,27 +1,18 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { useEffect, useRef, useState } from 'react';
-import { Animated } from 'react-native';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import moment from 'moment';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation } from 'react-query';
-import { useDebounce } from '../../../../custom-hooks/use-debounce';
-// import SecureStorage from 'app/utils/secure-storage';
-// import asyncStorageConstants from 'app/constants/async-storage-strings';
-
 import { healthIdFormSchema } from './validation-schema';
 import { createAbhaAddress } from '../../../../api';
-
-const tickAnimationConfig = {
-    toValue: 1,
-    duration: 800,
-    useNativeDriver: false,
-};
+import { useAbhaselector } from '../../abha-address-selector/hooks';
 
 export const useCreateId = () => {
     const navigation = useNavigation();
     const [glob, setGlob] = useState(undefined);
     const [healthIdText, setHealthIdText] = useState(undefined);
+    const { createPhrAddressMutation } = useAbhaselector();
 
     const { params: { sessionId = '', mobileNumber = '' } = {} } = useRoute();
     const [isHealthIdModalVisible, setIsHealthIdModalVisible] = useState(false);
@@ -48,7 +39,6 @@ export const useCreateId = () => {
 
     const onCreateHealthIdFormSubmit = async (formData) => {
         setGlob(formData);
-        console.log(formData, 'formData');
         createHealthId({
             ...formData,
             name: {
@@ -68,13 +58,15 @@ export const useCreateId = () => {
             alreadyExistedPHR: false,
         });
     };
+
     const {
         mutateAsync: createHealthId,
         isLoading: isCreateHealthIdLoading,
         error: healthIdCreateErrorResponse,
     } = useMutation((values) => createAbhaAddress(values), {
-        onSuccess: () => {
-            // const { data: { sessionId: session = '' } = {} } = response.data;
+        onSuccess: (response) => {
+            const { data: { sessionId: session = '' } = {} } = response.data;
+            createPhrAddressMutation(glob.healthId, session);
             navigation.navigate('Home');
         },
     });
@@ -86,7 +78,6 @@ export const useCreateId = () => {
     return {
         control,
         isFormValid,
-
         formErrors,
         isHealthIdModalVisible,
         healthIdText,

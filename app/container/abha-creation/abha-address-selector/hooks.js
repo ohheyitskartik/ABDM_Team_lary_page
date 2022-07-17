@@ -12,6 +12,7 @@ export const useAbhaselector = () => {
 
     const route = useRoute();
     const navigation = useNavigation();
+    const [isUploading, setIsUploading] = useState(false);
 
     const { mobileNumber = '', mappedPhrAddress = [], sessionId } = route.params;
 
@@ -33,9 +34,9 @@ export const useAbhaselector = () => {
         successActionStatus: 201,
     };
 
-    const { mutate: createPhrAddressMutation } = useMutation(
+    const { mutate: createPhrAddressMutation, isLoading: isLoadingPhr } = useMutation(
         'create-phr-address',
-        () => createPhrAddress(selected, sessionId),
+        (selectedAdd, session) => createPhrAddress(selected || selectedAdd, sessionId || session),
         {
             onSuccess: (data) => {
                 const {
@@ -47,48 +48,39 @@ export const useAbhaselector = () => {
                             dateOfBirth = {},
                             verifiedIdentifiers = [],
                         } = {},
-                        profilePhoto = '',
+                        imageData,
                     } = {},
                 } = data;
-                navigation.navigate('My ABHA', {
-                    healthId: id,
-                    name,
-                    dateOfBirth,
-                    verifiedIdentifiers,
-                    token,
-                });
-                // getPngMutate(token);
-            },
-        },
-    );
-
-    const { mutate: getPngMutate } = useMutation(
-        'get-png-card',
-        (bearerToken) => fetchAbhaCard(bearerToken),
-        {
-            onSuccess: (data) => {
-                console.log(data, 'encoded');
+                setIsUploading(true);
+                const encoded = Buffer.from(JSON.parse(imageData).data, 'binary').toString(
+                    'base64',
+                );
                 const file = {
-                    uri: `data:image/png;base64,${data}`,
+                    uri: `data:image/png;base64,${encoded}`,
                     name: `${auth().currentUser.phoneNumber}.${selected}.png`,
                     type: 'image/png',
                 };
                 RNS3.put(file, options).then((response) => {
                     if (response.status !== 201) throw new Error('Failed to upload image to S3');
                     const { postResponse: { location: imageUrl = '' } = {} } = response.body;
+                    setIsUploading(false);
                     navigation.navigate('My ABHA', {
-                        image: imageUrl,
-                        healthId: selected,
+                        healthId: id,
+                        name,
+                        dateOfBirth,
+                        verifiedIdentifiers,
+                        token,
+                        imageUrl,
                     });
                 });
+
+                // getPngMutate(token);
             },
         },
     );
 
     const onPress = () => {
-        console.log('onpress ScreeName: Selector');
         createPhrAddressMutation();
-        // navigation.navigate('My ABHA');
     };
 
     return {
@@ -98,5 +90,6 @@ export const useAbhaselector = () => {
         onPress,
         setSelected,
         createPhrAddressMutation,
+        isLoading: isLoadingPhr || isUploading,
     };
 };

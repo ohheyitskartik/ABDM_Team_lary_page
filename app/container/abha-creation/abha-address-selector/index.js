@@ -12,15 +12,8 @@ import PickerRadioButton from '../../../components/picker-radio-button';
 import { useAbhaselector } from './hooks';
 
 const HealthIDSelector = () => {
-    const {
-        mappedPhrAddress,
-        mobileNumber,
-        token,
-        selected,
-        onPress,
-        setSelected,
-        isHealthDetailsLoading,
-    } = useAbhaselector();
+    const { mappedPhrAddress, mobileNumber, token, selected, onPress, setSelected, isLoading } =
+        useAbhaselector();
     const navigation = useNavigation();
     const { phoneNumber } = auth().currentUser;
 
@@ -51,7 +44,7 @@ const HealthIDSelector = () => {
             <View style={styles.bottomContainer}>
                 <View style={styles.continue}>
                     <Button style={styles.continueButton} onPress={onPress}>
-                        {isHealthDetailsLoading ? <ActivityIndicator color={white} /> : 'Continue'}
+                        {isLoading ? <ActivityIndicator color={white} /> : 'Continue'}
                     </Button>
                     {mappedPhrAddress.length <= 4 && (
                         <TouchableOpacity

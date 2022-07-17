@@ -42,16 +42,6 @@ export default function AbhaCardImage({ healthId, image, name, dateOfBirth, veri
                             <Text style={styles.text}>{verifiedIdentifiers[0].value}</Text>
                         </View>
                     </View>
-                    <FastImage
-                        source={{ uri: image }}
-                        style={{
-                            width: scale(220),
-                            height: scale(220),
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}
-                        resizeMode={FastImage.resizeMode.contain}
-                    />
                 </View>
             </View>
         </>
