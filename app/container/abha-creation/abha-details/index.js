@@ -6,12 +6,19 @@ import styles from './styles';
 import HealthIdImage from './abha-card-image';
 import Button from '../../../components/button';
 import { height, scale, width } from '../../../../utils';
+import { useUploadFiles } from './hooks';
 
 const AbhaDetailsScreen = () => {
     const route = useRoute();
     const {
         params: { healthId, name, dateOfBirth, verifiedIdentifiers, imageUrl },
     } = route;
+    const { uploadGeneratedReportMutate } = useUploadFiles({
+        healthId,
+        name,
+        mobileNumber: verifiedIdentifiers[0].value,
+        fileLink: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+    });
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -42,7 +49,11 @@ const AbhaDetailsScreen = () => {
                         justifyContent: 'flex-end',
                         marginHorizontal: scale(40),
                     }}>
-                    <Button style={{ backgroundColor: '#1e91a3' }}>Upload My Document</Button>
+                    <Button
+                        onPress={uploadGeneratedReportMutate}
+                        style={{ backgroundColor: '#1e91a3' }}>
+                        Upload My Document
+                    </Button>
                 </View>
             </ScrollView>
         </View>

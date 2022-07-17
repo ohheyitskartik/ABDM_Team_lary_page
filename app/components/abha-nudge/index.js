@@ -1,13 +1,17 @@
-import { View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import Lottie from 'lottie-react-native';
+import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 import abha from '../../../assets/animations/abha.json';
 import Text from '../text';
 
 const AbhaNudge = () => {
+    const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <TouchableOpacity
+            onPress={() => navigation.navigate('Request OTP')}
+            style={styles.container}>
             <Lottie
                 source={abha}
                 style={{
@@ -23,7 +27,7 @@ const AbhaNudge = () => {
                     Share with a specialist to get a opinon now
                 </Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
