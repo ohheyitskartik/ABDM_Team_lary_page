@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { TextInput, View } from 'react-native';
 import React from 'react';
-import Text from '../../../../../components/text';
 import styles from './styles';
 
 const SquareTextInput = ({
@@ -15,10 +14,6 @@ const SquareTextInput = ({
     refCallback,
     onSubmitEditing,
 }) => {
-    const onTextBoxPress = () => {
-        refCallback?.current?.focus();
-    };
-
     return (
         <View>
             <TextInput
@@ -33,9 +28,6 @@ const SquareTextInput = ({
                 onSubmitEditing={onSubmitEditing}
                 style={styles.textInputBox}
             />
-            <Text onPress={onTextBoxPress} fontType="extra-bold" style={styles.overlayText}>
-                {value}
-            </Text>
         </View>
     );
 };

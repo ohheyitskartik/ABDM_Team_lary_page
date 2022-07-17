@@ -20,12 +20,8 @@ const InputTextFields = ({
                 control={control}
                 render={({ field: { onBlur, onChange, value } }) => (
                     <View style={styles.textFieldView}>
-                        <Text color={brandDark} fontType="bold" style={styles.textInputHeader}>
-                            {inputHeader}
-                        </Text>
                         <TextInput
-                            placeholderTextColor={blackMatte}
-                            placeholder={placeHolder}
+                            placeholder={inputHeader}
                             style={styles.textInput}
                             onChangeText={(text) => {
                                 return onChange(text);

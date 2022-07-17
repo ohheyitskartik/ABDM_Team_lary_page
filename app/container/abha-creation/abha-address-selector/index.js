@@ -2,6 +2,7 @@ import { ActivityIndicator, View } from 'react-native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 import styles from './styles';
 import Button from '../../../components/button';
 import Icon from '../../../components/icon';
@@ -14,7 +15,6 @@ const HealthIDSelector = () => {
     const {
         mappedPhrAddress,
         mobileNumber,
-        phrId,
         token,
         selected,
         onPress,
@@ -22,12 +22,13 @@ const HealthIDSelector = () => {
         isHealthDetailsLoading,
     } = useAbhaselector();
     const navigation = useNavigation();
+    const { phoneNumber } = auth().currentUser;
 
     return (
         <View style={styles.container}>
             <View style={styles.contentContainer}>
                 <Text style={styles.selectorHeading} size={15} fontType="bold">
-                    {mappedPhrAddress.slice(0, 4).length} Addresses found for Nishanth
+                    {mappedPhrAddress.slice(0, 4).length} Addresses found for {phoneNumber.slice(3)}
                 </Text>
                 <View style={styles.informationContainer}>
                     <Icon
@@ -59,11 +60,12 @@ const HealthIDSelector = () => {
                                     mobileNumber,
                                     token,
                                     selectedAddress: selected,
-                                    phrId: phrId || null,
                                 })
                             }
                             style={styles.createNewAbhaStyle}>
-                            <Text size={10}>Want to Create new ABHA Address? </Text>
+                            <Text color="white" size={10}>
+                                Want to Create new ABHA Address?{' '}
+                            </Text>
                             <Text
                                 size={10}
                                 color={cerulean}

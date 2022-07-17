@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { blueberry, brandDark, white } from '../../../../../../colors';
+import { white } from '../../../../../../colors';
 import { scale, verticalScale } from '../../../../../../utils';
 
 export default StyleSheet.create({
@@ -14,10 +14,10 @@ export default StyleSheet.create({
         paddingHorizontal: scale(20),
         borderRadius: scale(12),
         borderWidth: 1,
-        borderColor: blueberry,
+        borderColor: '#1e91a3',
     },
     selectedGenderBox: {
-        backgroundColor: brandDark,
+        backgroundColor: '#1e91a3',
         paddingVertical: verticalScale(15),
         paddingHorizontal: scale(20),
         borderRadius: scale(12),
