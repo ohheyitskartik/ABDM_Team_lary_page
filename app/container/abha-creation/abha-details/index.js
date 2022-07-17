@@ -5,12 +5,12 @@ import FastImage from 'react-native-fast-image';
 import styles from './styles';
 import HealthIdImage from './abha-card-image';
 import Button from '../../../components/button';
-import { height, scale, verticalScale, width } from '../../../../utils';
+import { height, scale, width } from '../../../../utils';
 
 const AbhaDetailsScreen = () => {
     const route = useRoute();
     const {
-        params: { healthId, name, dateOfBirth, verifiedIdentifiers, imageUrl, token },
+        params: { healthId, name, dateOfBirth, verifiedIdentifiers, imageUrl },
     } = route;
     return (
         <View style={styles.container}>
@@ -36,9 +36,13 @@ const AbhaDetailsScreen = () => {
                     }}
                     resizeMode={FastImage.resizeMode.contain}
                 />
-
-                <View>
-                    <Button>Upload My Document</Button>
+                <View
+                    style={{
+                        width: '80%',
+                        justifyContent: 'flex-end',
+                        marginHorizontal: scale(40),
+                    }}>
+                    <Button style={{ backgroundColor: '#1e91a3' }}>Upload My Document</Button>
                 </View>
             </ScrollView>
         </View>

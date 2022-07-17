@@ -2,9 +2,10 @@ import { View } from 'react-native';
 import React from 'react';
 import { Controller } from 'react-hook-form';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import Text from '../../../../../components/text';
 import YearPickerDropDown from '../../../../../components/year-picker-dropdown';
-import { brandDark, white } from '../../../../../../colors';
+import { white } from '../../../../../../colors';
 import styles from './styles';
 
 const InputDropDown = ({ control, formErrors, keyName, inputHeader, defaultValue }) => {
@@ -33,3 +34,10 @@ const InputDropDown = ({ control, formErrors, keyName, inputHeader, defaultValue
 };
 
 export default InputDropDown;
+InputDropDown.propTypes = {
+    control: PropTypes.string.isRequired,
+    formErrors: PropTypes.string.isRequired,
+    keyName: PropTypes.string.isRequired,
+    inputHeader: PropTypes.string.isRequired,
+    defaultValue: PropTypes.string.isRequired,
+};

@@ -45,7 +45,6 @@ export const useRequestOTP = () => {
         {
             onSuccess: (data) => {
                 const { data: { data: { sessionId = '' } = {} } = {} } = data;
-                console.log(sessionId);
                 navigation.navigate('Validate OTP', {
                     mobileNumber,
                     sessionId,

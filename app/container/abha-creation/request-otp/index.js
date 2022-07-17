@@ -2,7 +2,7 @@ import { View, TextInput, ActivityIndicator, Animated } from 'react-native';
 import React from 'react';
 import styles from './styles';
 import { useRequestOTP } from './hooks';
-import { blueberry, green6, grey } from '../../../../colors';
+import { green6, grey } from '../../../../colors';
 import Button from '../../../components/button';
 import Icon from '../../../components/icon';
 import Text from '../../../components/text';

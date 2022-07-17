@@ -10,11 +10,10 @@ import { envVars } from '../../../../env.config';
 export const useAbhaselector = () => {
     const [selected, setSelected] = useState(null);
 
-    const route = useRoute();
     const navigation = useNavigation();
     const [isUploading, setIsUploading] = useState(false);
 
-    const { mobileNumber = '', mappedPhrAddress = [], sessionId } = route.params;
+    const { params: { mobileNumber = '', mappedPhrAddress = [], sessionId } = {} } = useRoute();
 
     // const settingAsync = async (healthId, tokenForHealthId) => {
     //     try {

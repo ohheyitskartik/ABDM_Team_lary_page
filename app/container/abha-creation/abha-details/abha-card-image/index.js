@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 import FastImage from 'react-native-fast-image';
+import PropTypes from 'prop-types';
 import styles from './styles';
 import { images } from './images';
 import { scale } from '../../../../../utils';
 
-export default function AbhaCardImage({ healthId, image, name, dateOfBirth, verifiedIdentifiers }) {
+export default function AbhaCardImage({ healthId, name, verifiedIdentifiers }) {
     return (
         <>
             <View style={styles.container}>
@@ -47,3 +48,9 @@ export default function AbhaCardImage({ healthId, image, name, dateOfBirth, veri
         </>
     );
 }
+
+AbhaCardImage.propTypes = {
+    healthId: PropTypes.string.isRequired,
+    name: PropTypes.object.isRequired,
+    verifiedIdentifiers: PropTypes.array.isRequired,
+};
