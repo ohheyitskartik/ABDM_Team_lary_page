@@ -60,7 +60,7 @@ const RadioButton = ({
             </View>
             {label ? (
                 <Text
-                    fontType="regular"
+                    fontType="normal"
                     style={[{ marginLeft: 12, flex: 1, fontSize }, labelStyle]}
                     testID="components-radio-text-3"
                     accessibilityLabel="components-radio-text-3">

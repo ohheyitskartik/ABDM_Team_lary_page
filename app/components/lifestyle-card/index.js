@@ -4,7 +4,13 @@ import { scale, verticalScale } from '../../../utils';
 import Text from '../text';
 import CustomIcon from '../icon';
 
-const LifeStyleCard = ({ calories, totalDistance, hrv, polen, airQuality }) => {
+const LifeStyleCard = ({
+    calories = '--',
+    totalDistance = '--',
+    hrv = '--',
+    polen = '--',
+    airQuality = '--',
+}) => {
     return (
         <View
             style={{
@@ -74,7 +80,7 @@ const LifeStyleCard = ({ calories, totalDistance, hrv, polen, airQuality }) => {
                     </View>
                     <View>
                         <Text color="#747373">Air Quality</Text>
-                        <Text fontType="bold">{airQuality} PPM</Text>
+                        <Text fontType="bold">{airQuality}</Text>
                     </View>
                 </View>
                 <View
@@ -94,8 +100,8 @@ const LifeStyleCard = ({ calories, totalDistance, hrv, polen, airQuality }) => {
                         />
                     </View>
                     <View>
-                        <Text color="#747373">Pollen CC</Text>
-                        <Text fontType="bold">{polen} PPM</Text>
+                        <Text color="#747373">Pollen Risk</Text>
+                        <Text fontType="bold">{polen}</Text>
                     </View>
                 </View>
             </View>
