@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import React from 'react';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import FastImage from 'react-native-fast-image';
@@ -17,14 +17,14 @@ import { scale } from '../../../../../utils';
 const HealthIdCreateForm = () => {
     const {
         control,
-        tickScaleAnim,
         formErrors,
         userDetails,
-        setHealthIdText,
         handleSubmit,
+        healthIdText,
+        setHealthIdText,
         onCreateHealthIdFormSubmit,
+        isCreateHealthIdLoading,
     } = useCreateId();
-
     return (
         <>
             <KeyboardAwareScrollView style={styles.container}>
@@ -42,12 +42,8 @@ const HealthIdCreateForm = () => {
                         formErrors={formErrors}
                         keyName="healthId"
                         inputHeader="ABHA Id*"
-                        // isHealthIdCheckLoading={isHealthIdCheckLoading}
-                        // isHealthIdCheckSuccess={isHealthIdCheckSuccess}
-                        // isHealthIdCheckError={isHealthIdCheckError}
-                        tickScaleAnim={tickScaleAnim}
+                        healthIdText={healthIdText}
                         setHealthIdText={setHealthIdText}
-                        // isHealthIdExist={isHealthIdExist}
                     />
                     <InputTextFields
                         defaultValue={userDetails?.firstName}
@@ -88,9 +84,13 @@ const HealthIdCreateForm = () => {
                     <Button
                         onPress={handleSubmit(onCreateHealthIdFormSubmit)}
                         style={{ backgroundColor: '#1e91a3' }}>
-                        <Text color={white} fontType="bold">
-                            Generate ABHA Number
-                        </Text>
+                        {isCreateHealthIdLoading ? (
+                            <ActivityIndicator color={white} size="small" />
+                        ) : (
+                            <Text color={white} fontType="bold">
+                                Generate ABHA Number
+                            </Text>
+                        )}
                     </Button>
                 </View>
             </KeyboardAwareScrollView>

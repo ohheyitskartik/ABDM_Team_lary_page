@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { black, blueberry, white } from '../../../../../colors';
-import { scale, verticalScale } from '../../../../../utils';
+import { white } from '../../../../../colors';
+import { scale } from '../../../../../utils';
 
 const styles = StyleSheet.create({
     container: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
     card: {
         width: '80%',
-        height: verticalScale(300),
+        // height: verticalScale(300),
         padding: scale(10),
         backgroundColor: white,
         borderRadius: 15,

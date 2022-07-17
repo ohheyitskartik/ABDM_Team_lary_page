@@ -2,20 +2,14 @@ import { View, TextInput, ActivityIndicator, Animated } from 'react-native';
 import React from 'react';
 import styles from './styles';
 import { useRequestOTP } from './hooks';
-import { blueberry, green6, grey } from '../../../../colors';
+import { green6, grey } from '../../../../colors';
 import Button from '../../../components/button';
 import Icon from '../../../components/icon';
 import Text from '../../../components/text';
 
 export default function RequestOtp() {
-    const {
-        tickScaleAnim,
-        mobileNumber,
-        isTick,
-        onInputValueChange,
-        onSubmit,
-        isOTPRequestLoading,
-    } = useRequestOTP();
+    const { tickScaleAnim, mobileNumber, isTick, onInputValueChange, onSubmit, otpLoading } =
+        useRequestOTP();
     return (
         <View style={styles.wrapper}>
             <View style={styles.contentContainer}>
@@ -71,9 +65,9 @@ export default function RequestOtp() {
                     </Animated.View>
                 </View>
             </View>
-            <Button onPress={onSubmit} style={styles.OTPButton} disabled={isOTPRequestLoading}>
-                {isOTPRequestLoading ? (
-                    <ActivityIndicator color="#000" />
+            <Button onPress={onSubmit} style={styles.OTPButton} disabled={otpLoading}>
+                {otpLoading ? (
+                    <ActivityIndicator color="#fff" />
                 ) : (
                     <Text style={{ color: '#fff', fontWeight: 'bold' }}>Send OTP</Text>
                 )}
